@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-healthcare-pink">
       <Header />
-      <main className="pt-20">
+      <main className="pt-6">
         <Hero />
         <Services />
         <About />

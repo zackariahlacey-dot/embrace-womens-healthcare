@@ -9,7 +9,7 @@ import { smoothScrollTo } from "@/lib/scroll";
 const services = [
   {
     title: "Hormone Therapy & Wellness",
-    image: "/1.jpg",
+    image: "/2.jpg",
     headline:
       "Feeling unlike yourself? Fatigue, mood swings, or night sweats?",
     solution: (
@@ -20,7 +20,11 @@ const services = [
     expandedContent: [
       {
         label: "Why it helps",
-        text: "Balances crucial hormone levels that fluctuate during perimenopause and menopause.",
+        text: (
+          <>
+            Balances crucial hormone levels that fluctuate during <strong className="font-semibold text-healthcare-charcoal">perimenopause and menopause</strong>.
+          </>
+        ),
       },
       {
         label: "What it improves",
@@ -59,7 +63,7 @@ const services = [
   },
   {
     title: "Nutritional Support & Counseling",
-    image: "/2.jpg",
+    image: "/4.jpeg",
     headline:
       "Drained by stubborn weight or hormonal energy crashes?",
     solution: (
@@ -70,7 +74,11 @@ const services = [
     expandedContent: [
       {
         label: "Why it helps",
-        text: "Food is the foundational building block for your hormone production and metabolic health.",
+        text: (
+          <>
+            Food is the foundational building block for your hormone production and metabolic health—helping you <strong className="font-semibold text-healthcare-charcoal">optimize your hormones and vitality</strong>.
+          </>
+        ),
       },
       {
         label: "What it improves",
@@ -79,6 +87,26 @@ const services = [
       {
         label: "How it fixes things",
         text: "We replace confusing fad diets with evidence-based, sustainable nutritional plans that give your body the exact nutrients it needs to regulate hormones naturally.",
+      },
+    ],
+  },
+  {
+    title: "Acute UTI or Vaginal Infections",
+    image: "/1.jpg",
+    headline: "Need a quick telehealth appointment?",
+    solution: (
+      <>
+        Contraception new start and refill. Can&apos;t get in to your regular provider? Need a <strong>quick telehealth appointment</strong> so you can move on with your day? <strong>Travel nursing?</strong> In <strong>Vermont</strong> from out of town?
+      </>
+    ),
+    expandedContent: [
+      {
+        label: "",
+        text: (
+          <>
+            Contraception new start and refill. Can&apos;t get in to your regular provider? Need a <strong>quick telehealth appointment</strong> so you can move on with your day? <strong>Travel nursing?</strong> In <strong>Vermont</strong> from out of town?
+          </>
+        ),
       },
     ],
   },
@@ -118,8 +146,11 @@ export default function Services() {
         <p className="mx-auto mt-3 max-w-2xl text-center text-healthcare-charcoal/80">
           Woman-centered care tailored to your needs
         </p>
+        <p className="mx-auto mb-12 mt-4 max-w-2xl rounded-lg border border-pink-100 bg-pink-50 px-6 py-3 text-center font-medium text-healthcare-charcoal">
+          Offering sliding scale cash pay services. We can provide receipts to submit to your insurance.
+        </p>
 
-        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
           {services.map((item, index) => (
             <article
               key={item.title}
@@ -134,7 +165,7 @@ export default function Services() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-1 flex-col p-6 sm:p-8">
+              <div className="flex flex-1 flex-col items-center p-6 text-center sm:p-8">
                 <h3 className="text-lg font-semibold text-healthcare-charcoal">
                   {item.title}
                 </h3>
@@ -199,18 +230,30 @@ export default function Services() {
                   {service.title}
                 </h3>
 
-                <div className="mt-6 w-full max-w-prose space-y-4">
-                  {service.expandedContent.map(({ label, text }) => (
-                    <div key={label} className="mx-auto text-center">
-                      <span className="font-semibold text-healthcare-primary">
-                        {label}:
-                      </span>{" "}
-                      <span className="text-gray-600">{text}</span>
+                <div className="mt-6 w-full max-w-prose space-y-4 text-center">
+                  {service.expandedContent.map(({ label, text }, i) => (
+                    <div key={label || i} className="mx-auto text-center">
+                      {label ? (
+                        <>
+                          <span className="font-semibold text-healthcare-primary">
+                            {label}:
+                          </span>{" "}
+                          <span className="text-gray-600">{text}</span>
+                        </>
+                      ) : (
+                        <span className="text-gray-600">{text}</span>
+                      )}
                     </div>
                   ))}
                 </div>
 
-                <div className="mt-8 flex w-full flex-col-reverse items-center justify-center gap-3 sm:flex-row sm:gap-4">
+                {"ctaText" in service && service.ctaText && (
+                  <p className="mt-6 text-center font-medium text-healthcare-charcoal">
+                    {service.ctaText}
+                  </p>
+                )}
+
+                <div className="mt-8 flex w-full flex-col-reverse items-center justify-center gap-3 sm:mx-auto sm:flex-row sm:gap-4">
                   <button
                     type="button"
                     onClick={() => setActiveService(null)}
@@ -228,7 +271,9 @@ export default function Services() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Get in Touch
+                    {"ctaButtonLabel" in service && service.ctaButtonLabel
+                      ? service.ctaButtonLabel
+                      : "Get in Touch"}
                   </motion.button>
                 </div>
               </div>

@@ -17,13 +17,13 @@ export default function About() {
         transition={{ duration: 0.4 }}
       >
         <div className="order-first flex min-w-0 justify-center mb-8 lg:mb-0 lg:min-w-[320px] lg:order-1">
-          <div className="relative mx-auto w-full max-w-sm aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl lg:aspect-square lg:max-w-none">
+          <div className="relative mx-auto w-full max-w-[400px] aspect-square overflow-hidden shadow-2xl rounded-[60%_40%_30%_70%/60%_30%_70%_40%] border-8 border-pink-50">
             <Image
               src="/embraceheadshot.JPG"
               alt="Bethany Cook — Women's Health Nurse Practitioner & Certified Nurse Midwife"
               fill
-              sizes="(max-width: 640px) 24rem, (max-width: 1024px) 28rem, 50vw"
-              className="object-cover rounded-2xl shadow-2xl"
+              sizes="(max-width: 640px) 24rem, (max-width: 1024px) 28rem, 400px"
+              className="object-cover object-top h-full w-full"
               priority={false}
             />
           </div>
@@ -36,7 +36,7 @@ export default function About() {
             Women&apos;s Health Nurse Practitioner (WHNP-BC) & Certified Nurse Midwife (CNM)
           </p>
           <p className="mx-auto mt-6 max-w-prose text-healthcare-charcoal/90 lg:mx-0">
-            With over 20 years of experience, Bethany Cook specializes in navigating the transitions of perimenopause and menopause. Whether through group education or telehealth, her goal is to provide evidence-based care for these primary areas of focus.
+            With over 20 years of experience as a Women&apos;s Health Nurse Practitioner and Certified Nurse Midwife (CNM), Bethany Cook specializes in navigating the transitions of <strong className="font-semibold text-healthcare-charcoal">perimenopause and menopause</strong>. Whether through group education or telehealth, her goal is to provide evidence-based care for these <strong className="font-semibold text-healthcare-charcoal">primary areas of focus</strong>.
           </p>
         </div>
       </motion.div>
