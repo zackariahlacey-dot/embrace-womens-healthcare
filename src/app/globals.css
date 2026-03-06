@@ -1,26 +1,34 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Healthcare theme colors */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdf2f8;
+  --foreground: #2d2d2d;
+  --healthcare-pink: #fdf2f8;
+  --healthcare-primary: #D81B60;
+  --healthcare-charcoal: #2d2d2d;
+  --healthcare-cream: #fef7f4;
+  --healthcare-cream-soft: #fffafb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-healthcare-pink: #fdf2f8;
+  --color-healthcare-primary: #D81B60;
+  --color-healthcare-charcoal: #2d2d2d;
+  --color-healthcare-cream: #fef7f4;
+  --color-healthcare-cream-soft: #fffafb;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
 }
