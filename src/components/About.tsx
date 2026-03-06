@@ -28,17 +28,17 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="mt-8 flex flex-col justify-center px-4 text-center md:mt-0">
           <h2 className="text-2xl font-bold tracking-tight text-healthcare-charcoal sm:text-3xl">
             Meet Bethany — Your Partner in Health
           </h2>
-          <p className="mt-4 text-lg font-medium text-healthcare-primary">
+          <p className="mt-4 mb-6 text-lg font-medium text-healthcare-primary">
             Women&apos;s Health Nurse Practitioner (WHNP) & Certified Nurse Midwife (CNM)
           </p>
-          <p className="mt-6 max-w-prose text-healthcare-charcoal/90">
+          <p className="mx-auto mt-6 max-w-prose text-healthcare-charcoal/90">
             With over 20 years of clinical expertise, Bethany is dedicated to providing woman-centered care to patients across Vermont.
           </p>
-          <p className="mt-4 max-w-prose text-healthcare-charcoal/90">
+          <p className="mx-auto mt-4 max-w-prose text-healthcare-charcoal/90">
             She believes in attentive listening, individualized treatment, and compassionate support. Whether in-person or via telehealth, Bethany&apos;s goal is to create a respectful, judgment-free environment where your unique needs and goals guide your care.
           </p>
         </div>

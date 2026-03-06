@@ -135,13 +135,18 @@ export default function Services() {
                 <p className="mt-3 flex-1 text-healthcare-charcoal/90">
                   {item.solution}
                 </p>
-                <button
-                  type="button"
-                  onClick={() => setActiveService(index)}
-                  className="mt-6 inline-flex w-fit items-center gap-1 text-sm font-medium text-healthcare-charcoal transition-colors hover:text-healthcare-primary active:scale-95"
-                >
-                  Learn more -&gt;
-                </button>
+                <div className="mt-8 flex w-full justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setActiveService(index)}
+                    className="group inline-flex items-center gap-2 rounded-full border border-pink-100 bg-pink-50/50 px-6 py-2.5 font-medium text-healthcare-primary transition-all duration-300 hover:bg-healthcare-primary hover:text-white hover:shadow-md active:scale-95"
+                  >
+                    Learn more
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </button>
+                </div>
               </div>
             </article>
           ))}

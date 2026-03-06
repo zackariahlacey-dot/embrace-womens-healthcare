@@ -40,20 +40,22 @@ export function ContactForm() {
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
       >
-        <h2 className="mx-auto text-center text-2xl font-semibold tracking-tight text-healthcare-charcoal sm:text-3xl">
-          Get in touch
-        </h2>
-        <p className="mx-auto mt-2 max-w-prose text-center text-healthcare-charcoal/80">
-          Send a message and we&apos;ll get back to you as soon as we can.
-        </p>
+        <div className="mx-auto max-w-md px-4 mb-8 sm:mb-12">
+          <h2 className="text-center text-2xl font-semibold tracking-tight text-healthcare-charcoal sm:text-3xl">
+            Get in touch
+          </h2>
+          <p className="mx-auto mt-2 max-w-[280px] text-center text-healthcare-charcoal/80 sm:max-w-none">
+            Send a message and we&apos;ll get back to you as soon as we can.
+          </p>
+        </div>
 
         <form
           ref={formRef}
           action={formAction}
-          className="mt-8 space-y-6 rounded-2xl border border-healthcare-primary/10 bg-white/60 p-6 shadow-sm backdrop-blur sm:p-8"
+          className="space-y-6 rounded-2xl border border-healthcare-primary/10 bg-white/60 p-6 shadow-sm backdrop-blur sm:p-10"
         >
           <div>
-            <label htmlFor="firstName" className="block w-full text-center text-sm font-medium text-healthcare-charcoal">
+            <label htmlFor="firstName" className="block text-center text-sm font-medium text-healthcare-charcoal">
               First name <span className="text-healthcare-primary">*</span>
             </label>
             <input
@@ -62,14 +64,14 @@ export function ContactForm() {
               type="text"
               required
               autoComplete="given-name"
-              className="mt-2 block w-full rounded-lg border border-gray-100 bg-white px-4 py-3 text-center text-healthcare-charcoal shadow-sm transition focus:border-healthcare-primary focus:bg-pink-50/30 focus:outline-none focus:ring-2 focus:ring-healthcare-primary/20"
+              className="mt-2 block w-full rounded-lg border border-gray-100 bg-white px-4 py-3 text-base text-center text-healthcare-charcoal shadow-sm transition focus:border-healthcare-primary focus:bg-pink-50/30 focus:outline-none focus:ring-2 focus:ring-healthcare-primary/20 sm:px-5 sm:py-4"
               placeholder="Your first name"
               disabled={!!state?.success}
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block w-full text-center text-sm font-medium text-healthcare-charcoal">
+            <label htmlFor="email" className="block text-center text-sm font-medium text-healthcare-charcoal">
               Email <span className="text-healthcare-primary">*</span>
             </label>
             <input
@@ -78,14 +80,14 @@ export function ContactForm() {
               type="email"
               required
               autoComplete="email"
-              className="mt-2 block w-full rounded-lg border border-gray-100 bg-white px-4 py-3 text-center text-healthcare-charcoal shadow-sm transition focus:border-healthcare-primary focus:bg-pink-50/30 focus:outline-none focus:ring-2 focus:ring-healthcare-primary/20"
+              className="mt-2 block w-full rounded-lg border border-gray-100 bg-white px-4 py-3 text-base text-center text-healthcare-charcoal shadow-sm transition focus:border-healthcare-primary focus:bg-pink-50/30 focus:outline-none focus:ring-2 focus:ring-healthcare-primary/20 sm:px-5 sm:py-4"
               placeholder="you@example.com"
               disabled={!!state?.success}
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block w-full text-center text-sm font-medium text-healthcare-charcoal">
+            <label htmlFor="message" className="block text-center text-sm font-medium text-healthcare-charcoal">
               Message <span className="text-healthcare-primary">*</span>
             </label>
             <textarea
@@ -93,7 +95,7 @@ export function ContactForm() {
               name="message"
               rows={4}
               required
-              className="mt-2 block w-full resize-y rounded-lg border border-gray-100 bg-white px-4 py-3 text-center text-healthcare-charcoal shadow-sm transition focus:border-healthcare-primary focus:bg-pink-50/30 focus:outline-none focus:ring-2 focus:ring-healthcare-primary/20"
+              className="mt-2 block w-full resize-y rounded-lg border border-gray-100 bg-white px-4 py-3 text-base text-center text-healthcare-charcoal shadow-sm transition focus:border-healthcare-primary focus:bg-pink-50/30 focus:outline-none focus:ring-2 focus:ring-healthcare-primary/20 sm:px-5 sm:py-4"
               placeholder="How can we help?"
               disabled={!!state?.success}
             />
@@ -114,7 +116,7 @@ export function ContactForm() {
             <button
               type="submit"
               disabled={isPending || !!state?.success}
-              className="mx-auto rounded-lg bg-healthcare-primary px-6 py-4 font-semibold text-white shadow-md transition hover:bg-healthcare-primary/90 focus:outline-none focus:ring-2 focus:ring-healthcare-primary focus:ring-offset-2 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-lg bg-healthcare-primary px-6 py-4 font-semibold text-white shadow-md transition hover:bg-healthcare-primary/90 focus:outline-none focus:ring-2 focus:ring-healthcare-primary focus:ring-offset-2 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
             >
               {isPending ? (
                 <span className="inline-flex items-center gap-2">

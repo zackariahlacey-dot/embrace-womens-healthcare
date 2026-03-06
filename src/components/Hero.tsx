@@ -20,15 +20,15 @@ export function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-[min(85vh,42rem)] items-center overflow-hidden bg-healthcare-cream-soft">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 py-16 sm:px-6 md:px-8 lg:grid-cols-2 lg:gap-16 lg:py-20">
+    <section className="relative flex min-h-[min(85vh,42rem)] items-center overflow-hidden bg-healthcare-cream-soft pt-24 pb-12 sm:pt-32 sm:pb-20">
+      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 md:px-8 lg:grid-cols-2 lg:gap-16 lg:py-20">
         <motion.div
           className="flex flex-col items-center justify-center text-center"
           initial={fadeIn.initial}
           animate={fadeIn.animate}
           transition={fadeIn.transition}
         >
-          <h1 className="mx-auto max-w-xl text-center text-4xl font-bold leading-tight tracking-tight text-healthcare-charcoal sm:text-5xl md:text-6xl">
+          <h1 className="mx-auto max-w-xl text-center text-3xl font-bold leading-tight tracking-tight text-healthcare-charcoal sm:text-4xl md:text-5xl lg:text-6xl">
             Empowering Women Through Compassionate, Personalized Care.
           </h1>
           <p className="mx-auto mt-6 max-w-prose text-center text-base leading-relaxed tracking-wide text-healthcare-charcoal/90 sm:text-lg md:text-xl">
@@ -54,7 +54,7 @@ export function Hero() {
           transition={{ ...fadeIn.transition, delay: 0.15 }}
         >
           <div
-            className="relative h-[320px] w-full max-w-sm overflow-hidden border-4 border-healthcare-primary/40 shadow-2xl shadow-[0_0_50px_-12px_rgba(216,27,96,0.2)] sm:h-[380px] sm:max-w-md"
+            className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden border-4 border-healthcare-primary/40 shadow-2xl shadow-[0_0_50px_-12px_rgba(216,27,96,0.2)] sm:max-w-md"
             style={{ borderRadius: "62% 38% 52% 48% / 55% 45% 55% 45%" }}
           >
             <Image

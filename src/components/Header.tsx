@@ -19,7 +19,7 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] border-b border-pink-100/50 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-y-4 px-4 py-4 sm:px-6 md:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 md:px-8">
         <Link
           href="/"
           className="flex shrink-0 items-center"
@@ -35,18 +35,18 @@ export function Header() {
           />
         </Link>
         <nav
-          className="hidden sm:flex sm:items-center sm:gap-8"
+          className="flex items-center gap-3 sm:gap-6"
           aria-label="Main navigation"
         >
           <Link
             href="/#about"
-            className="text-sm font-medium text-healthcare-charcoal transition-colors hover:text-healthcare-primary"
+            className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
           >
             About
           </Link>
           <Link
             href="/#services"
-            className="text-sm font-medium text-healthcare-charcoal transition-colors hover:text-healthcare-primary"
+            className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
           >
             Services
           </Link>
@@ -54,7 +54,7 @@ export function Header() {
         <motion.button
             type="button"
             onClick={scrollToContact}
-            className={ctaButtonClass}
+            className={`${ctaButtonClass} shrink-0`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
