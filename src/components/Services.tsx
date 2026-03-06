@@ -1,12 +1,28 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { smoothScrollTo } from "@/lib/scroll";
 
-const services = [
+interface ServiceExpandedItem {
+  label: string;
+  text: ReactNode;
+}
+
+interface ServiceItem {
+  title: string;
+  image: string;
+  headline: string;
+  solution: ReactNode;
+  expandedContent: ServiceExpandedItem[];
+  ctaText?: string;
+  ctaButtonLabel?: string;
+}
+
+const services: ServiceItem[] = [
   {
     title: "Hormone Therapy & Wellness",
     image: "/2.jpg",
@@ -247,7 +263,7 @@ export default function Services() {
                   ))}
                 </div>
 
-                {"ctaText" in service && service.ctaText && (
+                {service.ctaText && (
                   <p className="mt-6 text-center font-medium text-healthcare-charcoal">
                     {service.ctaText}
                   </p>
@@ -271,9 +287,7 @@ export default function Services() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {"ctaButtonLabel" in service && service.ctaButtonLabel
-                      ? service.ctaButtonLabel
-                      : "Get in Touch"}
+                    {service.ctaButtonLabel ?? "Get in Touch"}
                   </motion.button>
                 </div>
               </div>
