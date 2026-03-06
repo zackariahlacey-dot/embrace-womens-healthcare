@@ -34,9 +34,18 @@ export const metadata: Metadata = {
     description:
       "Compassionate, woman-centered care in Colchester, VT & via Telehealth. Specializing in Hormone Therapy, Vaginal Health, and Nutritional Support. Led by Bethany, an experienced WHNP & Certified Nurse Midwife.",
     type: "website",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Embrace Women's Healthcare — Empowering Women Through Compassionate, Personalized Care.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/api/og"],
     title: "Embrace Women's Healthcare | Women's Health Nurse Practitioner Vermont",
     description:
       "Compassionate, woman-centered care in Colchester, VT & via Telehealth. Specializing in Hormone Therapy, Vaginal Health, and Nutritional Support.",
