@@ -32,19 +32,20 @@ export function ContactForm() {
   }, [isSuccessOpen]);
 
   return (
-    <section id="contact" className="flex flex-col items-center justify-center text-center scroll-mt-24 bg-healthcare-pink px-4 py-16 pt-24 sm:px-6 md:py-24 lg:px-8 lg:py-32">
-      <motion.div
-        className="mx-4 w-full max-w-2xl text-center sm:mx-auto"
+    <section id="contact" className="flex flex-col items-center justify-center text-center scroll-mt-24 bg-healthcare-pink px-4 py-20 pt-24 sm:px-6 lg:px-8 lg:py-32">
+      <div className="mx-auto w-full max-w-7xl">
+        <motion.div
+          className="mx-auto w-full max-w-2xl text-center"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
       >
-        <div className="mx-auto max-w-md px-4 mb-8 sm:mb-12">
-          <h2 className="text-center text-2xl font-semibold tracking-tight text-healthcare-charcoal sm:text-3xl">
+        <div className="mx-auto max-w-[280px] px-4 mb-8 sm:max-w-md sm:mb-12">
+          <h2 className="text-center text-3xl font-semibold tracking-tight text-healthcare-charcoal sm:text-4xl">
             Get in touch
           </h2>
-          <p className="mx-auto mt-2 max-w-[280px] text-center text-healthcare-charcoal/80 sm:max-w-none">
+          <p className="mx-auto mt-2 text-center text-base text-gray-600 sm:text-lg">
             Send a message and we&apos;ll get back to you as soon as we can.
           </p>
         </div>
@@ -172,6 +173,7 @@ export function ContactForm() {
           )}
         </AnimatePresence>
       </motion.div>
+      </div>
     </section>
   );
 }

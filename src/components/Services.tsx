@@ -9,11 +9,14 @@ import { smoothScrollTo } from "@/lib/scroll";
 const services = [
   {
     title: "Hormone Therapy & Wellness",
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800",
+    image: "/1.jpg",
     headline:
       "Feeling unlike yourself? Fatigue, mood swings, or night sweats?",
-    solution:
-      "We provide personalized Hormone Replacement Therapy (HRT) and wellness planning to help you regain your energy and sense of balance.",
+    solution: (
+      <>
+        We provide personalized Hormone Replacement Therapy (HRT) and wellness planning for <strong className="font-semibold text-healthcare-charcoal">perimenopause and menopause</strong>—helping you regain your energy and sense of balance.
+      </>
+    ),
     expandedContent: [
       {
         label: "Why it helps",
@@ -31,11 +34,14 @@ const services = [
   },
   {
     title: "Vaginal Health & Sexual Wellness",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800",
+    image: "/3.jpg",
     headline:
       "Struggling with discomfort, dryness, or intimacy concerns?",
-    solution:
-      "Compassionate, judgment-free care for your most private health needs. We help you feel comfortable, confident, and empowered in your own body again.",
+    solution: (
+      <>
+        Compassionate, judgment-free care for your most <strong className="font-semibold text-healthcare-charcoal">private health needs</strong>. We help you feel comfortable, confident, and empowered in your own body again.
+      </>
+    ),
     expandedContent: [
       {
         label: "Why it helps",
@@ -53,11 +59,14 @@ const services = [
   },
   {
     title: "Nutritional Support & Counseling",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800",
+    image: "/2.jpg",
     headline:
       "Drained by stubborn weight or hormonal energy crashes?",
-    solution:
-      "Evidence-based nutritional guidance tailored to your unique biology. Fuel your body to optimize your hormones and vitality at any age.",
+    solution: (
+      <>
+        Evidence-based nutritional guidance tailored to your unique biology. Fuel your body to <strong className="font-semibold text-healthcare-charcoal">optimize your hormones and vitality</strong> at any age.
+      </>
+    ),
     expandedContent: [
       {
         label: "Why it helps",
@@ -94,7 +103,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-healthcare-cream-soft px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-32"
+      className="bg-healthcare-cream-soft px-4 py-20 sm:px-6 lg:px-8 lg:py-32"
     >
       <motion.div
         className="mx-auto max-w-7xl"
@@ -116,7 +125,7 @@ export default function Services() {
               key={item.title}
               className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
-              <div className="relative h-48 w-full shrink-0 overflow-hidden">
+              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
                 <Image
                   src={item.image}
                   alt=""

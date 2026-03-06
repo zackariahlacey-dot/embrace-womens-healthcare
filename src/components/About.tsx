@@ -7,39 +7,36 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-white px-4 py-16 sm:px-6 md:py-24 lg:px-8 lg:py-32"
+      className="bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-32"
     >
       <motion.div
-        className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16"
+        className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-20"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.4 }}
       >
-        <div className="relative flex items-center justify-center md:justify-start">
-          <div className="relative h-[320px] w-full max-w-md overflow-hidden rounded-2xl shadow-lg shadow-[0_0_50px_-12px_rgba(216,27,96,0.2)] ring-1 ring-healthcare-primary/10 sm:h-[380px]">
+        <div className="order-first flex min-w-0 justify-center mb-8 lg:mb-0 lg:min-w-[320px] lg:order-1">
+          <div className="relative mx-auto w-full max-w-sm aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl lg:aspect-square lg:max-w-none">
             <Image
               src="/embraceheadshot.JPG"
-              alt="Bethany — Women's Health Nurse Practitioner & Certified Nurse Midwife"
+              alt="Bethany Cook — Women's Health Nurse Practitioner & Certified Nurse Midwife"
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
+              sizes="(max-width: 640px) 24rem, (max-width: 1024px) 28rem, 50vw"
+              className="object-cover rounded-2xl shadow-2xl"
               priority={false}
             />
           </div>
         </div>
-        <div className="mt-8 flex flex-col justify-center px-4 text-center md:mt-0">
+        <div className="order-last flex min-w-0 flex-col justify-center px-4 text-center lg:order-2 lg:text-left">
           <h2 className="text-2xl font-bold tracking-tight text-healthcare-charcoal sm:text-3xl">
-            Meet Bethany — Your Partner in Health
+            Meet Bethany Cook — Your Partner in Health
           </h2>
           <p className="mt-4 mb-6 text-lg font-medium text-healthcare-primary">
-            Women&apos;s Health Nurse Practitioner (WHNP) & Certified Nurse Midwife (CNM)
+            Women&apos;s Health Nurse Practitioner (WHNP-BC) & Certified Nurse Midwife (CNM)
           </p>
-          <p className="mx-auto mt-6 max-w-prose text-healthcare-charcoal/90">
-            With over 20 years of clinical expertise, Bethany is dedicated to providing woman-centered care to patients across Vermont.
-          </p>
-          <p className="mx-auto mt-4 max-w-prose text-healthcare-charcoal/90">
-            She believes in attentive listening, individualized treatment, and compassionate support. Whether in-person or via telehealth, Bethany&apos;s goal is to create a respectful, judgment-free environment where your unique needs and goals guide your care.
+          <p className="mx-auto mt-6 max-w-prose text-healthcare-charcoal/90 lg:mx-0">
+            With over 20 years of experience, Bethany Cook specializes in navigating the transitions of perimenopause and menopause. Whether through group education or telehealth, her goal is to provide evidence-based care for these primary areas of focus.
           </p>
         </div>
       </motion.div>

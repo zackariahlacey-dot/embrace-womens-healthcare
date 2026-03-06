@@ -20,53 +20,52 @@ export function Hero() {
   };
 
   return (
-    <section className="relative flex min-h-[min(85vh,42rem)] items-center overflow-hidden bg-healthcare-cream-soft pt-24 pb-12 sm:pt-32 sm:pb-20">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 md:px-8 lg:grid-cols-2 lg:gap-16 lg:py-20">
-        <motion.div
-          className="flex flex-col items-center justify-center text-center"
-          initial={fadeIn.initial}
-          animate={fadeIn.animate}
-          transition={fadeIn.transition}
-        >
-          <h1 className="mx-auto max-w-xl text-center text-3xl font-bold leading-tight tracking-tight text-healthcare-charcoal sm:text-4xl md:text-5xl lg:text-6xl">
-            Empowering Women Through Compassionate, Personalized Care.
-          </h1>
-          <p className="mx-auto mt-6 max-w-prose text-center text-base leading-relaxed tracking-wide text-healthcare-charcoal/90 sm:text-lg md:text-xl">
-            Led by Bethany, a Women&apos;s Health Nurse Practitioner & Certified Nurse Midwife with over 20 years of experience, we provide a safe space for your health journey in Vermont and via Telehealth.
-          </p>
-          <div className="mt-8 flex w-full justify-center">
-            <motion.button
-              type="button"
-              onClick={scrollToContact}
-              className="inline-flex items-center justify-center rounded-full bg-healthcare-primary px-6 py-3 font-medium text-white shadow-md transition-colors hover:bg-healthcare-primary/90 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-healthcare-primary focus:ring-offset-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get in Touch
-            </motion.button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="flex items-center justify-center"
-          initial={fadeIn.initial}
-          animate={fadeIn.animate}
-          transition={{ ...fadeIn.transition, delay: 0.15 }}
-        >
-          <div
-            className="relative mx-auto aspect-square w-full max-w-xs overflow-hidden border-4 border-healthcare-primary/40 shadow-2xl shadow-[0_0_50px_-12px_rgba(216,27,96,0.2)] sm:max-w-md"
-            style={{ borderRadius: "62% 38% 52% 48% / 55% 45% 55% 45%" }}
+    <section className="relative flex min-h-[min(85vh,42rem)] items-center overflow-hidden bg-healthcare-cream-soft py-20 pt-24 sm:pt-32 lg:py-32">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          <motion.div
+            className="mx-auto mb-12 flex flex-col items-center justify-center text-center lg:mb-16"
+            initial={fadeIn.initial}
+            animate={fadeIn.animate}
+            transition={fadeIn.transition}
           >
-            <Image
-              src="/embraceheadshot.JPG"
-              alt="Bethany — Embrace Women's Healthcare"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-top"
-              priority
-            />
-          </div>
-        </motion.div>
+            <h1 className="mx-auto max-w-xl text-3xl font-bold leading-[1.15] tracking-tight text-healthcare-charcoal sm:text-4xl lg:text-[2.75rem]">
+              Empowering Women Through Compassionate, Personalized Care.
+            </h1>
+            <p className="mx-auto mt-6 max-w-md text-sm text-gray-500 sm:text-base">
+              Led by Bethany Cook, WHNP-BC, CNM. Building community through in-person group education and personalized telehealth visits. My primary areas of focus are <strong className="font-semibold text-healthcare-charcoal">perimenopause and menopause</strong> care for women across Vermont.
+            </p>
+            <div className="mt-8 flex w-full justify-center sm:mt-10">
+              <motion.button
+                type="button"
+                onClick={scrollToContact}
+                className="inline-flex items-center justify-center rounded-full bg-healthcare-primary px-6 py-3 font-medium text-white shadow-md transition-colors hover:bg-healthcare-primary/90 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-healthcare-primary focus:ring-offset-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get in Touch
+              </motion.button>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="flex items-center justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="relative mx-auto aspect-square w-full max-w-[400px] overflow-hidden rounded-[60%_40%_30%_70%/60%_30%_70%_40%] border-8 border-pink-50 shadow-2xl lg:max-w-[500px]">
+              <Image
+                src="/embraceheadshot.JPG"
+                alt="Bethany Cook — Embrace Women's Healthcare"
+                fill
+                sizes="(max-width: 1024px) 400px, 500px"
+                className="object-cover h-full w-full"
+                priority
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
