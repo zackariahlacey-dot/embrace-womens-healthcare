@@ -162,6 +162,14 @@ export default function Services() {
         <p className="mx-auto mt-3 max-w-2xl text-center text-healthcare-charcoal/80">
           Woman-centered care tailored to your needs
         </p>
+        <div className="mx-auto mb-12 mt-10 max-w-3xl text-center text-lg text-healthcare-charcoal md:mt-14 md:text-xl">
+          <p className="mb-4">
+            <strong className="font-semibold text-pink-900/90">Menopause</strong> is a <strong className="font-semibold text-pink-900/90">shared experience</strong> for all women, even though our health journeys may look different. At <strong className="font-semibold text-pink-900/90">Embrace Women&apos;s Healthcare</strong>, we&apos;re here to walk alongside you – offering a welcoming community, trusted education and access to effective <strong className="font-semibold text-pink-900/90">hormone therapy and nutritional support</strong>. You don&apos;t have to navigate this transition alone; we are here to help you <strong className="font-semibold text-pink-900/90">feel like yourself again</strong>.
+          </p>
+          <p>
+            We offer <strong className="font-semibold text-pink-900/90">monthly group education</strong> at <strong className="font-semibold text-pink-900/90">The Wellness Collective</strong> along with <strong className="font-semibold text-pink-900/90">individual telehealth visits</strong> to create a <strong className="font-semibold text-pink-900/90">personalized care plan</strong> that fits your needs.
+          </p>
+        </div>
         <p className="mx-auto mb-12 mt-4 max-w-2xl rounded-lg border border-pink-100 bg-pink-50 px-6 py-3 text-center font-medium text-healthcare-charcoal">
           Offering sliding scale cash pay services. We can provide receipts to submit to your insurance.
         </p>
