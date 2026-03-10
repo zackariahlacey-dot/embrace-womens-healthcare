@@ -118,16 +118,20 @@ export async function submitContactForm(
     // Step B: Emails — Admin notification + Patient confirmation (both must succeed)
     const resend = new Resend(resendApiKey);
 
+    const replyTo = "bethanycooknp@proton.me";
+
     const [adminResult, confirmResult] = await Promise.all([
       resend.emails.send({
         from: FROM_ADMIN,
         to: ["zackariahlacey@gmail.com", "bethanycooknp@proton.me"],
+        replyTo,
         subject: `New Website Lead: ${firstName}`,
         html: adminEmailHtml(firstName, email, message),
       }),
       resend.emails.send({
         from: FROM_PATIENT,
         to: email,
+        replyTo,
         subject: "Thank you for reaching out to Embrace Women's Healthcare",
         html: confirmationEmailHtml(firstName),
       }),
