@@ -40,7 +40,7 @@ function adminEmailHtml(firstName: string, email: string, message: string): stri
 
 function confirmationEmailHtml(firstName: string): string {
   const safeName = escapeHtml(firstName);
-  const logoUrl = "https://www.embracewomenshealthcare.com/logo.png";
+  const logoUrl = "https://www.embracewomenshealthcare.com/embracelogo.png";
   return `
 <!DOCTYPE html>
 <html>
@@ -52,10 +52,11 @@ function confirmationEmailHtml(firstName: string): string {
     <p style="font-size: 16px; line-height: 1.6;">Hi ${safeName},</p>
     <p style="font-size: 16px; line-height: 1.6;">We have received your message. Beth will be with you shortly to help you with your needs and answer any questions you may have.</p>
     <p style="font-size: 16px; line-height: 1.6;">If you have any immediate questions, feel free to reply directly to this email.</p>
-    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
       <p style="font-size: 14px; color: #9ca3af; margin-bottom: 4px;">Warmly,</p>
-      <p style="font-size: 16px; font-weight: bold; color: #db2777; margin-top: 0;">Bethany Cook, WHNP-BC, CNM</p>
-      <p style="font-size: 12px; color: #9ca3af;">Embrace Women's Healthcare</p>
+      <p style="font-size: 18px; font-weight: bold; color: #db2777; margin-top: 0; margin-bottom: 2px;">Bethany Cook</p>
+      <p style="font-size: 14px; color: #374151; margin-top: 0; font-weight: 500;">WHNP-BC, CNM</p>
+      <p style="font-size: 12px; color: #9ca3af; margin-top: 5px;">Embrace Women's Healthcare</p>
     </div>
   </div>
 </body>
