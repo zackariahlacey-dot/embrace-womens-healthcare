@@ -43,7 +43,7 @@ export function Hero() {
               Empowering Women Through Compassionate, Personalized Care.
             </h1>
             <p className="mx-auto mb-10 max-w-[85%] text-sm font-light tracking-wide text-white/90 sm:text-base md:max-w-xl md:text-lg">
-              Led by Bethany Cook, WHNP-BC. Specialized perimenopause, menopause, and acute care for women across Vermont through accessible telehealth.
+              Led by Bethany Cook, WHNP-BC. Specialized <strong className="font-semibold">perimenopause, menopause, and acute care</strong> for women across <strong className="font-semibold">Vermont</strong> through <strong className="font-semibold">accessible telehealth</strong>.
             </p>
             <motion.button
               type="button"
