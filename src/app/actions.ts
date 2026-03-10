@@ -8,7 +8,8 @@
 import { createClient } from "@supabase/supabase-js";
 import { Resend } from "resend";
 
-const FROM_EMAIL = "Embrace Women's Healthcare <onboarding@resend.dev>";
+const FROM_PATIENT = "Embrace Women's Healthcare <hello@embracewomenshealthcare.com>";
+const FROM_ADMIN = "Website Leads <hello@embracewomenshealthcare.com>";
 
 export type SubmitContactFormState =
   | { success: true; message?: string }
@@ -19,14 +20,13 @@ function adminEmailHtml(firstName: string, email: string, message: string): stri
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="margin:0; padding:24px; font-family: system-ui, sans-serif; background-color: #f3f4f6;">
-  <div style="max-width:560px; margin:0 auto; background:#ffffff; border-radius:12px; padding:28px; box-shadow:0 1px 3px rgba(0,0,0,0.08);">
-    <h2 style="margin:0 0 20px; font-size:18px; color:#374151;">New Lead</h2>
-    <table style="width:100%; border-collapse:collapse;">
-      <tr><td style="padding:10px 0 6px; font-weight:600; color:#6b7280; width:100px;">Name</td><td style="padding:10px 0 6px; color:#111827;">${escapeHtml(firstName)}</td></tr>
-      <tr><td style="padding:6px 0; font-weight:600; color:#6b7280;">Email</td><td style="padding:6px 0;"><a href="mailto:${escapeHtml(email)}" style="color:#D81B60;">${escapeHtml(email)}</a></td></tr>
-      <tr><td style="padding:12px 0 6px; font-weight:600; color:#6b7280; vertical-align:top;">Message</td><td style="padding:12px 0 6px; color:#111827; white-space:pre-wrap;">${escapeHtml(message)}</td></tr>
-    </table>
+<body style="margin:0; padding:24px; font-family: Arial, sans-serif; color: #333;">
+  <h2 style="color: #db2777;">New Contact Form Submission</h2>
+  <p><strong>Name:</strong> ${escapeHtml(firstName)}</p>
+  <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+  <p><strong>Message:</strong></p>
+  <div style="background: #f9fafb; padding: 15px; border-radius: 8px; border: 1px solid #e5e7eb;">
+    <p style="white-space: pre-wrap; margin: 0;">${escapeHtml(message)}</p>
   </div>
 </body>
 </html>
@@ -34,15 +34,26 @@ function adminEmailHtml(firstName: string, email: string, message: string): stri
 }
 
 function confirmationEmailHtml(firstName: string): string {
+  const safeName = escapeHtml(firstName);
+  const logoUrl = "https://www.embracewomenshealthcare.com/embracelogo.png";
   return `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="margin:0; padding:24px; font-family: system-ui, sans-serif; background-color: #fdf2f8;">
-  <div style="max-width:560px; margin:0 auto; background:#ffffff; border-radius:12px; padding:32px; box-shadow:0 1px 3px rgba(0,0,0,0.08); border-top:4px solid #D81B60;">
-    <h2 style="margin:0 0 20px; font-size:20px; color:#D81B60;">Embrace Women&apos;s Healthcare</h2>
-    <p style="margin:0 0 16px; color:#374151; line-height:1.6;">Hi ${escapeHtml(firstName)}, thank you for reaching out! Bethany has received your message and will get back to you shortly.</p>
-    <p style="margin:0; color:#6b7280; line-height:1.6;">Warmly,<br><strong>The Embrace Team</strong></p>
+<body style="margin:0; padding:24px;">
+  <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #374151; border: 1px solid #f3f4f6; border-radius: 12px;">
+    <img src="${logoUrl}" alt="Embrace Women's Healthcare" style="height: 50px; width: auto; display: block; margin: 0 auto 30px auto;" />
+    <div style="background-color: #ffffff; padding: 10px; text-align: center;">
+      <h1 style="color: #db2777; font-size: 24px; font-weight: 300; margin-bottom: 20px;">Thank You for Reaching Out</h1>
+      <p style="font-size: 16px; line-height: 1.6;">Hi ${safeName},</p>
+      <p style="font-size: 16px; line-height: 1.6;">We have received your message. Beth will be with you shortly to help you with your health journey and answer any questions you may have.</p>
+      <p style="font-size: 16px; line-height: 1.6;">In the meantime, feel free to explore our services or reply directly to this email if you have something urgent to add.</p>
+      <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+        <p style="font-size: 14px; color: #9ca3af; margin-bottom: 4px;">Warmly,</p>
+        <p style="font-size: 16px; font-weight: bold; color: #db2777; margin-top: 0;">Bethany Cook, WHNP-BC, CNM</p>
+        <p style="font-size: 12px; color: #9ca3af;">Embrace Women's Healthcare</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
@@ -104,29 +115,31 @@ export async function submitContactForm(
 
     if (dbError) throw new Error("Failed to save to database: " + dbError.message);
 
-    // Step B: Emails — Admin Report + Patient Confirmation
+    // Step B: Emails — Admin notification + Patient confirmation (both must succeed)
     const resend = new Resend(resendApiKey);
 
-    const { error: adminError } = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: ["zackariahlacey@gmail.com", "bethanycooknp@proton.me"],
-      subject: `🚨 New Lead: ${firstName}`,
-      html: adminEmailHtml(firstName, email, message),
-    });
+    const [adminResult, confirmResult] = await Promise.all([
+      resend.emails.send({
+        from: FROM_ADMIN,
+        to: ["zackariahlacey@gmail.com", "bethanycooknp@proton.me"],
+        subject: `New Website Lead: ${firstName}`,
+        html: adminEmailHtml(firstName, email, message),
+      }),
+      resend.emails.send({
+        from: FROM_PATIENT,
+        to: email,
+        subject: "Thank you for reaching out to Embrace Women's Healthcare",
+        html: confirmationEmailHtml(firstName),
+      }),
+    ]);
 
-    if (adminError) {
-      console.error("Resend admin email error:", adminError);
-    }
+    const adminError = adminResult.error;
+    const confirmError = confirmResult.error;
 
-    const { error: confirmError } = await resend.emails.send({
-      from: FROM_EMAIL,
-      to: email,
-      subject: "We received your message - Embrace Women's Healthcare",
-      html: confirmationEmailHtml(firstName),
-    });
+    if (adminError) console.error("Resend admin email error:", adminError);
+    if (confirmError) console.error("Resend confirmation email error:", confirmError);
 
     if (confirmError) {
-      console.error("Resend confirmation email error:", confirmError);
       const msg = adminError
         ? "Message saved, but both emails failed to send."
         : "Message saved, but confirmation email failed.";
