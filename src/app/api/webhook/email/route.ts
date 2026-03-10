@@ -1,3 +1,12 @@
+/**
+ * Resend Inbound Webhook — forwards received emails to Gmail.
+ *
+ * Configure in Resend: Webhooks → Add → Event "email.received" → Endpoint URL:
+ *   https://www.embracewomenshealthcare.com/api/webhook/email
+ *
+ * Optional: set RESEND_WEBHOOK_SECRET in .env (and Vercel) to verify webhook signatures.
+ * Requires RESEND_API_KEY for forwarding.
+ */
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
@@ -80,11 +89,14 @@ export async function POST(req: NextRequest) {
 </html>
     `.trim();
 
+    const forwardText = `Forwarded Inbound Email\n\nFrom: ${from}\nSubject: ${subject}\n\n--- Message ---\n\n${bodyText || "(no plain text body)"}`;
+
     const { error: sendError } = await resend.emails.send({
       from: FROM_EMAIL,
       to: [FORWARD_TO],
       subject: `[Forwarded] ${subject}`,
       html: forwardHtml,
+      text: forwardText,
     });
 
     if (sendError) {

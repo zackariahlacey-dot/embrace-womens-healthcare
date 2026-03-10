@@ -16,17 +16,22 @@ export type SubmitContactFormState =
   | { success: false; error: string };
 
 function adminEmailHtml(firstName: string, email: string, message: string): string {
+  const safeName = escapeHtml(firstName);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message);
   return `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
-<body style="margin:0; padding:24px; font-family: Arial, sans-serif; color: #333;">
-  <h2 style="color: #db2777;">New Contact Form Submission</h2>
-  <p><strong>Name:</strong> ${escapeHtml(firstName)}</p>
-  <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-  <p><strong>Message:</strong></p>
-  <div style="background: #f9fafb; padding: 15px; border-radius: 8px; border: 1px solid #e5e7eb;">
-    <p style="white-space: pre-wrap; margin: 0;">${escapeHtml(message)}</p>
+<body style="margin:0; padding:24px;">
+  <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333; text-align: center;">
+    <h2 style="color: #db2777; margin-bottom: 20px;">New Website Lead</h2>
+    <p style="font-size: 16px; margin: 5px 0;"><strong>Name:</strong> ${safeName}</p>
+    <p style="font-size: 16px; margin: 5px 0;"><strong>Email:</strong> ${safeEmail}</p>
+    <div style="background: #f9fafb; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; margin-top: 25px; text-align: left;">
+      <p style="font-size: 14px; color: #6b7280; margin-top: 0; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em;">Message</p>
+      <p style="white-space: pre-wrap; margin: 0; font-size: 16px; line-height: 1.6;">${safeMessage}</p>
+    </div>
   </div>
 </body>
 </html>
@@ -35,24 +40,22 @@ function adminEmailHtml(firstName: string, email: string, message: string): stri
 
 function confirmationEmailHtml(firstName: string): string {
   const safeName = escapeHtml(firstName);
-  const logoUrl = "https://www.embracewomenshealthcare.com/embracelogo.png";
+  const logoUrl = "https://www.embracewomenshealthcare.com/logo.png";
   return `
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
 <body style="margin:0; padding:24px;">
-  <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #374151; border: 1px solid #f3f4f6; border-radius: 12px;">
-    <img src="${logoUrl}" alt="Embrace Women's Healthcare" style="height: 50px; width: auto; display: block; margin: 0 auto 30px auto;" />
-    <div style="background-color: #ffffff; padding: 10px; text-align: center;">
-      <h1 style="color: #db2777; font-size: 24px; font-weight: 300; margin-bottom: 20px;">Thank You for Reaching Out</h1>
-      <p style="font-size: 16px; line-height: 1.6;">Hi ${safeName},</p>
-      <p style="font-size: 16px; line-height: 1.6;">We have received your message. Beth will be with you shortly to help you with your health journey and answer any questions you may have.</p>
-      <p style="font-size: 16px; line-height: 1.6;">In the meantime, feel free to explore our services or reply directly to this email if you have something urgent to add.</p>
-      <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
-        <p style="font-size: 14px; color: #9ca3af; margin-bottom: 4px;">Warmly,</p>
-        <p style="font-size: 16px; font-weight: bold; color: #db2777; margin-top: 0;">Bethany Cook, WHNP-BC, CNM</p>
-        <p style="font-size: 12px; color: #9ca3af;">Embrace Women's Healthcare</p>
-      </div>
+  <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #374151; text-align: center; border: 1px solid #f3f4f6; border-radius: 12px;">
+    <img src="${logoUrl}" alt="Embrace Women's Healthcare" style="height: 50px; width: auto; display: block; margin: 0 auto 20px auto;" />
+    <h2 style="color: #db2777; font-size: 24px; font-weight: 300; margin-bottom: 20px;">Thank You for Reaching Out</h2>
+    <p style="font-size: 16px; line-height: 1.6;">Hi ${safeName},</p>
+    <p style="font-size: 16px; line-height: 1.6;">We have received your message. Beth will be with you shortly to help you with your needs and answer any questions you may have.</p>
+    <p style="font-size: 16px; line-height: 1.6;">If you have any immediate questions, feel free to reply directly to this email.</p>
+    <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+      <p style="font-size: 14px; color: #9ca3af; margin-bottom: 4px;">Warmly,</p>
+      <p style="font-size: 16px; font-weight: bold; color: #db2777; margin-top: 0;">Bethany Cook, WHNP-BC, CNM</p>
+      <p style="font-size: 12px; color: #9ca3af;">Embrace Women's Healthcare</p>
     </div>
   </div>
 </body>
