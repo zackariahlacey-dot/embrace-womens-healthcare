@@ -18,40 +18,47 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] border-b border-pink-100/50 bg-white/80 backdrop-blur-md">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 md:px-8">
-        <Link
-          href="/"
-          className="flex shrink-0 items-center"
-          aria-label="Embrace Women's Healthcare home"
-        >
-          <Image
-            src="/embracelogo.png"
-            alt="Embrace Women's Healthcare"
-            width={180}
-            height={56}
-            priority
-            className="h-12 w-auto sm:h-14"
-          />
-        </Link>
-        <nav
-          className="flex items-center gap-3 sm:gap-6"
-          aria-label="Main navigation"
-        >
+    <header className="fixed top-0 left-0 right-0 z-[100]">
+      {/* Top notification banner */}
+      <div className="bg-[#1a1a1a]/95 px-4 py-1.5 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white border-b border-white/10 sm:text-xs">
+        • Now Accepting New Patients — Starting Early Summer 2026 •
+      </div>
+
+      {/* Main navigation bar */}
+      <div className="border-b border-pink-100/50 bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 md:px-8">
           <Link
-            href="/#about"
-            className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
+            href="/"
+            className="flex shrink-0 items-center"
+            aria-label="Embrace Women's Healthcare home"
           >
-            About
+            <Image
+              src="/embracelogo.png"
+              alt="Embrace Women's Healthcare"
+              width={180}
+              height={56}
+              priority
+              className="h-12 w-auto sm:h-14"
+            />
           </Link>
-          <Link
-            href="/#services"
-            className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
+          <nav
+            className="flex items-center gap-3 sm:gap-6"
+            aria-label="Main navigation"
           >
-            Services
-          </Link>
-        </nav>
-        <motion.button
+            <Link
+              href="/#about"
+              className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
+            >
+              About
+            </Link>
+            <Link
+              href="/#services"
+              className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
+            >
+              Services
+            </Link>
+          </nav>
+          <motion.button
             type="button"
             onClick={scrollToContact}
             className={`${ctaButtonClass} shrink-0`}
@@ -60,6 +67,7 @@ export function Header() {
           >
             Contact Us
           </motion.button>
+        </div>
       </div>
     </header>
   );
