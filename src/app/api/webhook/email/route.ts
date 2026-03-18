@@ -71,6 +71,13 @@ export async function POST(req: NextRequest) {
 
     const subject = (result.data?.subject ?? (email as { subject?: string }).subject ?? "No subject").trim();
     const from = (result.data?.from ?? (email as { from?: string }).from ?? "Unknown").trim();
+
+    // Filter out DMARC reports from Google
+    if (from.toLowerCase().includes("noreply-dmarc-support@google.com") || 
+        subject.toLowerCase().includes("report domain: embracewomenshealthcare.com")) {
+      return NextResponse.json({ message: "DMARC report ignored" }, { status: 200 });
+    }
+
     const bodyText = (email as { text?: string }).text ?? "";
     const bodyHtml = (email as { html?: string }).html ?? "";
 
