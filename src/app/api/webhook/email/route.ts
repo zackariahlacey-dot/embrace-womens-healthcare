@@ -10,6 +10,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { supabase } from "@/lib/supabase";
 
 const FORWARD_TO = "zackariahlacey@gmail.com";
 const FROM_EMAIL = "Website Leads <hello@embracewomenshealthcare.com>";
@@ -90,6 +91,29 @@ export async function POST(req: NextRequest) {
     `.trim();
 
     const forwardText = `Forwarded Inbound Email\n\nFrom: ${from}\nSubject: ${subject}\n\n--- Message ---\n\n${bodyText || "(no plain text body)"}`;
+
+    // Store in Supabase
+    try {
+      // Extract name and email from "Name <email@example.com>"
+      let namePart = from;
+      let emailPart = from;
+      const match = from.match(/(.*)<(.*)>/);
+      if (match) {
+        namePart = match[1].trim();
+        emailPart = match[2].trim();
+      }
+
+      await supabase
+        .from("leads")
+        .insert([{
+          first_name: namePart,
+          email: emailPart,
+          message: `[Subject: ${subject}]\n\n${bodyText || "(no body)"}`
+        }]);
+    } catch (dbErr) {
+      console.error("Failed to store inbound email in Supabase:", dbErr);
+      // We don't fail the whole request because the forwarding is arguably more important
+    }
 
     const { error: sendError } = await resend.emails.send({
       from: FROM_EMAIL,

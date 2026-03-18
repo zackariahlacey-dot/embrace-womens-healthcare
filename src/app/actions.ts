@@ -5,7 +5,7 @@
  * so Next.js picks up the new environment variables.
  */
 
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "@/lib/supabase";
 import { Resend } from "resend";
 
 const FROM_PATIENT = "Embrace Women's Healthcare <hello@embracewomenshealthcare.com>";
@@ -92,32 +92,30 @@ export async function submitContactForm(
   }
 
   try {
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
     const resendApiKey = process.env.RESEND_API_KEY;
 
-    if (!supabaseUrl || !supabaseAnonKey) {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
       return {
         success: false,
-        error:
-          "Missing Supabase config. Add NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY to .env.local, then restart your terminal (e.g. npm run dev).",
+        error: "Missing Supabase configuration. Please ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set.",
       };
     }
     if (!resendApiKey) {
       return {
         success: false,
-        error: "Missing RESEND_API_KEY in .env.local. Add it and restart your terminal.",
+        error: "Missing RESEND_API_KEY in environment variables.",
       };
     }
-
-    const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
     // Step A: Database — insert into leads
     const { error: dbError } = await supabase
       .from("leads")
       .insert([{ first_name: firstName, email: email, message: message }]);
 
-    if (dbError) throw new Error("Failed to save to database: " + dbError.message);
+    if (dbError) {
+      console.error("Supabase insert error:", dbError);
+      throw new Error(`Failed to save to database: ${dbError.message}`);
+    }
 
     // Step B: Emails — Admin notification + Patient confirmation (both must succeed)
     const resend = new Resend(resendApiKey);
