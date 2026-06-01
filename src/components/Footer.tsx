@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="border-t border-pink-100 bg-pink-50/50">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:py-16">
-        <div className="flex flex-col items-center justify-center text-center">
+    <footer className="border-t border-[#4A4335]/15 bg-[#FAF8F5] py-12 md:py-16">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex flex-col items-center justify-center text-center space-y-6">
           <Link
             href="/"
-            className="flex shrink-0 items-center justify-center"
+            className="flex shrink-0 items-center justify-center transition-transform hover:scale-[1.02]"
             aria-label="Embrace Women's Healthcare home"
           >
             <Image
@@ -16,24 +16,24 @@ export function Footer() {
               alt="Embrace Women's Healthcare"
               width={200}
               height={64}
-              className="h-14 w-auto sm:h-16"
+              className="h-12 w-auto sm:h-14 brightness-95"
             />
           </Link>
 
-          <p className="mt-6 max-w-md text-sm text-gray-600 sm:text-base">
+          <p className="max-w-md text-xs sm:text-sm text-[#5A5346] font-sans">
             The Wellness Collective — 875 Roosevelt Hwy Suite 120, Colchester, VT 05446
           </p>
 
           <a
             href="mailto:bethany@embracewomenshealthcare.com"
-            className="mt-3 text-healthcare-primary transition-colors hover:underline"
+            className="text-sm font-semibold text-[#8C6C58] hover:text-[#4A4335] transition-colors"
           >
             bethany@embracewomenshealthcare.com
           </a>
         </div>
 
-        <div className="mt-10 border-t border-gray-100 pt-8 text-center">
-          <p className="text-xs text-gray-400">
+        <div className="mt-12 border-t border-[#4A4335]/10 pt-8 text-center">
+          <p className="text-[10px] sm:text-xs text-[#5A5346]/70 uppercase tracking-widest">
             © 2026 Embrace Women&apos;s Healthcare. All rights reserved.
           </p>
         </div>

@@ -4,33 +4,44 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Healthcare theme colors */
+/* Healthcare brochure theme colors */
 :root {
-  --background: #fdf2f8;
-  --foreground: #2d2d2d;
-  --healthcare-pink: #fdf2f8;
-  --healthcare-primary: #D81B60;
-  --healthcare-charcoal: #2d2d2d;
-  --healthcare-cream: #fef7f4;
-  --healthcare-cream-soft: #fffafb;
+  --background: #EAE5D9;
+  --foreground: #4A4335;
+  --healthcare-pink: #EAE5D9;
+  --healthcare-primary: #4A4335;
+  --healthcare-charcoal: #4A4335;
+  --healthcare-cream: #F5F2EB;
+  --healthcare-cream-soft: #FAF8F5;
+
+  --brochure-dark: #4A4335;
+  --brochure-body: #5A5346;
+  --brochure-accent: #8C6C58;
+  --brochure-light: #F5F2EB;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-healthcare-pink: #fdf2f8;
-  --color-healthcare-primary: #D81B60;
-  --color-healthcare-charcoal: #2d2d2d;
-  --color-healthcare-cream: #fef7f4;
-  --color-healthcare-cream-soft: #fffafb;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-healthcare-pink: #EAE5D9;
+  --color-healthcare-primary: #4A4335;
+  --color-healthcare-charcoal: #4A4335;
+  --color-healthcare-cream: #F5F2EB;
+  --color-healthcare-cream-soft: #FAF8F5;
+
+  --color-brochure-dark: #4A4335;
+  --color-brochure-body: #5A5346;
+  --color-brochure-accent: #8C6C58;
+  --color-brochure-light: #F5F2EB;
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
 @layer utilities {

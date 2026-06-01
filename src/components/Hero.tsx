@@ -4,58 +4,116 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const fadeIn = {
-  initial: { opacity: 0, y: 12 },
+  initial: { opacity: 0, y: 15 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
+  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const },
 };
 
 export function Hero() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
-      const yOffset = -80; // Keeps the form from hiding under the header
+      const yOffset = -120;
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
   };
 
   return (
-    <section className="w-full pt-4 sm:pt-6">
-      <div className="relative mx-auto mb-12 mt-16 w-full max-w-[96%] overflow-hidden rounded-[2rem] border border-white/20 shadow-[0_30px_80px_-15px_rgba(0,0,0,0.5),inset_0_0_20px_rgba(255,255,255,0.1)] ring-1 ring-inset ring-white/10 backdrop-blur-sm min-h-[50vh] md:mt-24 md:min-h-[70vh] md:rounded-[3xl]">
-        <Image
-          src="/purple.png"
-          alt=""
-          fill
-          priority
-          sizes="96vw"
-          className="z-0 object-cover object-[center_15%]"
-        />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/70 via-black/40 to-black/70" aria-hidden />
+    <section className="relative w-full pt-28 pb-16 px-4 md:pt-40 md:pb-24 bg-[#EAE5D9]">
+      <div className="mx-auto max-w-4xl text-center flex flex-col items-center">
+        {/* Main Serif Header */}
+        <motion.h1 
+          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#4A4335] leading-[1.1] tracking-tight mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          Embrace <br className="sm:hidden" />
+          Women's Healthcare
+        </motion.h1>
 
-        <div className="relative z-10 flex h-full w-full min-h-[50vh] flex-col items-center justify-center px-6 py-10 text-center md:min-h-[70vh] md:py-20">
-          <motion.div
-            className="mx-auto flex max-w-3xl flex-col items-center justify-center"
-            initial={fadeIn.initial}
-            animate={fadeIn.animate}
-            transition={fadeIn.transition}
+        {/* Elegant Italic Subtitle */}
+        <motion.p 
+          className="font-serif italic text-lg sm:text-xl md:text-2xl text-[#8C6C58] tracking-wide mb-10 md:mb-12 font-medium"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          Feel heard. Feel better. Feel like you again.
+        </motion.p>
+
+        {/* Main Hugging Women Image Container */}
+        <motion.div 
+          className="relative w-full max-w-2xl aspect-[16/10] rounded-2xl md:rounded-[2rem] overflow-hidden border border-[#4A4335]/15 shadow-[0_15px_40px_-5px_rgba(74,67,53,0.25)] mb-10 md:mb-12 bg-[#FAF8F5]/50 group"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+        >
+          <Image
+            src="/purple.png"
+            alt="Three women hugging side-by-side in colorful sweaters representing friendship, comfort, and healthcare support"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 40rem"
+            className="z-0 object-cover object-[center_35%] transition-transform duration-700 group-hover:scale-[1.02]"
+          />
+        </motion.div>
+
+        {/* Powerful Brochure Wording Below the Image */}
+        <motion.div 
+          className="max-w-2xl space-y-4 text-[#5A5346] text-sm sm:text-base md:text-lg tracking-wide leading-relaxed font-sans mb-10"
+          initial="initial"
+          animate="animate"
+          variants={{
+            animate: {
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.6
+              }
+            }
+          }}
+        >
+          <motion.p 
+            variants={fadeIn}
+            className="font-medium text-[#4A4335]"
           >
-            <h1 className="mb-6 max-w-3xl text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl md:text-5xl lg:text-6xl">
-              Empowering Women Through Compassionate, Personalized Care.
-            </h1>
-            <p className="mx-auto mb-10 max-w-[85%] text-sm font-light tracking-wide text-white/90 sm:text-base md:max-w-xl md:text-lg">
-              Led by Bethany Cook, WHNP-BC. Specialized <strong className="font-semibold">perimenopause, menopause, and acute care</strong> for women across <strong className="font-semibold">Vermont</strong> through <strong className="font-semibold">accessible telehealth</strong>.
-            </p>
-            <motion.button
-              type="button"
-              onClick={scrollToContact}
-              className="rounded-full bg-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(219,39,119,0.3)] transition-all duration-300 hover:-translate-y-1 hover:bg-pink-700 hover:shadow-[0_12px_25px_rgba(219,39,119,0.4)] focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent md:px-10 md:py-4 md:text-lg"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Get in Touch
-            </motion.button>
-          </motion.div>
-        </div>
+            Thoughtful, personalized care for women in Vermont.
+          </motion.p>
+          <motion.p 
+            variants={fadeIn}
+            className="border-t border-[#4A4335]/10 pt-4"
+          >
+            Grounded in trusted education, evidence-based hormone therapy, and wellness support.
+          </motion.p>
+          <motion.p 
+            variants={fadeIn}
+            className="border-t border-[#4A4335]/10 pt-4 italic font-serif text-[#8C6C58] text-base sm:text-lg md:text-xl"
+          >
+            So every woman feels heard, supported, and empowered.
+          </motion.p>
+        </motion.div>
+
+        {/* Dynamic CTA buttons */}
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center gap-4 mt-2"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1 }}
+        >
+          <button
+            onClick={() => scrollToSection("services")}
+            className="w-full sm:w-auto rounded-full bg-[#4A4335] text-[#FAF8F5] px-8 py-3.5 text-sm font-semibold tracking-wide shadow-md transition-all duration-300 hover:bg-[#5A5346] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          >
+            Explore Services
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="w-full sm:w-auto rounded-full border border-[#4A4335] text-[#4A4335] px-8 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          >
+            Book Appointment
+          </button>
+        </motion.div>
       </div>
     </section>
   );

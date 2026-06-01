@@ -5,13 +5,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const ctaButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-healthcare-primary px-6 py-3 font-medium text-white shadow-md transition-colors hover:bg-healthcare-primary/90 hover:shadow-lg";
+  "inline-flex items-center justify-center rounded-full bg-[#4A4335] px-6 py-2.5 text-xs font-semibold text-[#FAF8F5] shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow-md border border-[#4A4335]/10 sm:text-sm";
 
 export function Header() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
-      const yOffset = -80; // Keeps the form from hiding under the header
+      const yOffset = -120; // Keeps the content from hiding under the header
       const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
@@ -20,16 +20,16 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100]">
       {/* Top notification banner */}
-      <div className="bg-[#1a1a1a]/95 px-4 py-1.5 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white border-b border-white/10 sm:text-xs">
+      <div className="bg-[#4A4335] px-4 py-2 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-[#FAF8F5] border-b border-[#EAE5D9]/10 sm:text-xs">
         • Now Accepting New Patients — Starting Early Summer 2026 •
       </div>
 
       {/* Main navigation bar */}
-      <div className="border-b border-pink-100/50 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-4 sm:gap-4 sm:px-6 md:px-8">
+      <div className="border-b border-[#4A4335]/10 bg-[#EAE5D9]/80 backdrop-blur-md shadow-sm">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-6 md:px-8">
           <Link
             href="/"
-            className="flex shrink-0 items-center"
+            className="flex shrink-0 items-center transition-transform hover:scale-[1.02]"
             aria-label="Embrace Women's Healthcare home"
           >
             <Image
@@ -38,35 +38,67 @@ export function Header() {
               width={180}
               height={56}
               priority
-              className="h-12 w-auto sm:h-14"
+              className="h-10 w-auto sm:h-12 brightness-95 contrast-105"
             />
           </Link>
+          
           <nav
-            className="flex items-center gap-3 sm:gap-6"
+            className="hidden md:flex items-center gap-6 lg:gap-8"
             aria-label="Main navigation"
           >
-            <Link
-              href="/#about"
-              className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
+            <button
+              onClick={() => scrollToSection("about")}
+              className="text-xs font-medium uppercase tracking-wider text-[#4A4335] transition-colors hover:text-[#8C6C58] cursor-pointer sm:text-sm"
             >
               About
-            </Link>
-            <Link
-              href="/#services"
-              className="text-xs font-medium text-gray-600 transition-colors hover:text-healthcare-primary sm:text-sm"
+            </button>
+            <button
+              onClick={() => scrollToSection("services")}
+              className="text-xs font-medium uppercase tracking-wider text-[#4A4335] transition-colors hover:text-[#8C6C58] cursor-pointer sm:text-sm"
             >
               Services
-            </Link>
+            </button>
+            <button
+              onClick={() => scrollToSection("how-it-works")}
+              className="text-xs font-medium uppercase tracking-wider text-[#4A4335] transition-colors hover:text-[#8C6C58] cursor-pointer sm:text-sm"
+            >
+              How It Works
+            </button>
+            <button
+              onClick={() => scrollToSection("sliding-scale")}
+              className="text-xs font-medium uppercase tracking-wider text-[#4A4335] transition-colors hover:text-[#8C6C58] cursor-pointer sm:text-sm"
+            >
+              Sliding Scale
+            </button>
           </nav>
-          <motion.button
-            type="button"
-            onClick={scrollToContact}
-            className={`${ctaButtonClass} shrink-0`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Contact Us
-          </motion.button>
+          
+          <div className="flex items-center gap-3">
+            {/* Small screen navigation quick menu */}
+            <nav className="flex md:hidden items-center gap-3 mr-1">
+              <button
+                onClick={() => scrollToSection("about")}
+                className="text-[10px] font-bold uppercase tracking-wider text-[#4A4335] hover:text-[#8C6C58]"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-[10px] font-bold uppercase tracking-wider text-[#4A4335] hover:text-[#8C6C58]"
+              >
+                Services
+              </button>
+            </nav>
+
+            <motion.button
+              type="button"
+              onClick={() => scrollToSection("contact")}
+              className={ctaButtonClass}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Contact Us
+            </motion.button>
+          </div>
         </div>
       </div>
     </header>

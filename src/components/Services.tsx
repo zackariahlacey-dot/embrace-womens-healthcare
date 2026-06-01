@@ -3,9 +3,8 @@
 import type { ReactNode } from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, Check } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { smoothScrollTo } from "@/lib/scroll";
 
 interface ServiceExpandedItem {
   label: string;
@@ -26,11 +25,10 @@ const services: ServiceItem[] = [
   {
     title: "Hormone Therapy & Wellness",
     image: "/2.jpg",
-    headline:
-      "Feeling unlike yourself? Fatigue, mood swings, or night sweats?",
+    headline: "Feeling unlike yourself? Fatigue, mood swings, or night sweats?",
     solution: (
       <>
-        We provide personalized Hormone Replacement Therapy (HRT) and wellness planning for <strong className="font-semibold text-healthcare-charcoal">perimenopause and menopause</strong>—helping you regain your energy and sense of balance.
+        We provide personalized Hormone Replacement Therapy (HRT) and wellness planning for <strong className="font-semibold text-[#4A4335]">perimenopause and menopause</strong>—helping you regain your energy and sense of balance.
       </>
     ),
     expandedContent: [
@@ -38,7 +36,7 @@ const services: ServiceItem[] = [
         label: "Why it helps",
         text: (
           <>
-            Balances crucial hormone levels that fluctuate during <strong className="font-semibold text-healthcare-charcoal">perimenopause and menopause</strong>.
+            Balances crucial hormone levels that fluctuate during <strong className="font-semibold text-[#4A4335]">perimenopause and menopause</strong>.
           </>
         ),
       },
@@ -55,11 +53,10 @@ const services: ServiceItem[] = [
   {
     title: "Vaginal Health & Sexual Wellness",
     image: "/3.jpg",
-    headline:
-      "Struggling with discomfort, dryness, or intimacy concerns?",
+    headline: "Struggling with discomfort, dryness, or intimacy concerns?",
     solution: (
       <>
-        Compassionate, judgment-free care for your most <strong className="font-semibold text-healthcare-charcoal">private health needs</strong>. We help you feel comfortable, confident, and empowered in your own body again.
+        Compassionate, judgment-free care for your most <strong className="font-semibold text-[#4A4335]">private health needs</strong>. We help you feel comfortable, confident, and empowered in your own body again.
       </>
     ),
     expandedContent: [
@@ -80,11 +77,10 @@ const services: ServiceItem[] = [
   {
     title: "Nutritional Support & Counseling",
     image: "/4.jpeg",
-    headline:
-      "Drained by stubborn weight or hormonal energy crashes?",
+    headline: "Drained by stubborn weight or hormonal energy crashes?",
     solution: (
       <>
-        Evidence-based nutritional guidance tailored to your unique biology. Fuel your body to <strong className="font-semibold text-healthcare-charcoal">optimize your hormones and vitality</strong> at any age.
+        Evidence-based nutritional guidance tailored to your unique biology. Fuel your body to <strong className="font-semibold text-[#4A4335]">optimize your hormones and vitality</strong> at any age.
       </>
     ),
     expandedContent: [
@@ -92,7 +88,7 @@ const services: ServiceItem[] = [
         label: "Why it helps",
         text: (
           <>
-            Food is the foundational building block for your hormone production and metabolic health—helping you <strong className="font-semibold text-healthcare-charcoal">optimize your hormones and vitality</strong>.
+            Food is the foundational building block for your hormone production and metabolic health—helping you <strong className="font-semibold text-[#4A4335]">optimize your hormones and vitality</strong>.
           </>
         ),
       },
@@ -128,6 +124,20 @@ const services: ServiceItem[] = [
   },
 ];
 
+const bulletServices = [
+  "Symptom management for menopause and perimenopause",
+  "Hormone Replacement Therapy",
+  "Family Planning",
+  "Primary Care Coordination",
+  "Sexual Wellness",
+  "LGBTQ+ friendly",
+  "Lifestyle education: Stress management, Physical activity, Sexual Wellness, Bone health, Sleep hygiene, Vitamin and Supplements",
+  "Cancer Screenings",
+  "Thyroid Management",
+  "Chronic Pelvic Pain",
+  "Treatment of acute infections including UTI and vaginal infections",
+];
+
 export default function Services() {
   const [activeService, setActiveService] = useState<number | null>(null);
 
@@ -144,71 +154,117 @@ export default function Services() {
     };
   }, [activeService]);
 
+  const scrollToContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      const yOffset = -120;
+      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="services"
-      className="bg-healthcare-cream-soft px-4 py-20 sm:px-6 lg:px-8 lg:py-32"
+      className="bg-[#EAE5D9] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 scroll-mt-20 border-t border-[#4A4335]/15"
     >
       <motion.div
-        className="mx-auto max-w-7xl"
+        className="mx-auto max-w-6xl"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.6 }}
       >
-        <h2 className="text-center text-2xl font-semibold tracking-tight text-healthcare-charcoal sm:text-3xl">
-          How we can help
-        </h2>
-        <p className="mx-auto mt-3 max-w-2xl text-center text-healthcare-charcoal/80">
-          Woman-centered care tailored to your needs
-        </p>
-        <div className="mx-auto mb-12 mt-10 max-w-3xl text-center text-lg text-healthcare-charcoal md:mt-14 md:text-xl">
-          <p className="mb-4">
-            <strong className="font-semibold text-pink-900/90">Menopause</strong> is a <strong className="font-semibold text-pink-900/90">shared experience</strong> for all women, even though our health journeys may look different. At <strong className="font-semibold text-pink-900/90">Embrace Women&apos;s Healthcare</strong>, we&apos;re here to walk alongside you – offering a welcoming community, trusted education and access to effective <strong className="font-semibold text-pink-900/90">hormone therapy and nutritional support</strong>. You don&apos;t have to navigate this transition alone; we are here to help you <strong className="font-semibold text-pink-900/90">feel like yourself again</strong>.
-          </p>
-          <p>
-            We offer <strong className="font-semibold text-pink-900/90">monthly group education</strong> at <strong className="font-semibold text-pink-900/90">The Wellness Collective</strong> along with <strong className="font-semibold text-pink-900/90">individual telehealth visits</strong> to create a <strong className="font-semibold text-pink-900/90">personalized care plan</strong> that fits your needs.
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h2 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#4A4335]">
+            Services Provided
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide">
+            Compassionate, evidence-based wellness care tailored to your unique biology
           </p>
         </div>
-        <p className="mx-auto mb-12 mt-4 max-w-2xl rounded-lg border border-pink-100 bg-pink-50 px-6 py-3 text-center font-medium text-healthcare-charcoal">
-          Offering sliding scale cash pay services. We can provide receipts to submit to your insurance.
-        </p>
 
-        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+        {/* Top Split Layout: 11 Bullets & outdoor yoga image (1.jpg) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
+          
+          {/* Left: 11 Bullets (Cols 1-7) */}
+          <div className="lg:col-span-7 space-y-6">
+            <h3 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold border-b border-[#4A4335]/15 pb-3">
+              Care Options & Clinical Offerings
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-1 gap-3.5">
+              {bulletServices.map((bullet) => (
+                <li key={bullet} className="flex items-start gap-3.5 text-[#5A5346] text-sm md:text-base leading-relaxed">
+                  <span className="flex shrink-0 w-6 h-6 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58] mt-0.5 shadow-sm">
+                    <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
+                  </span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right: Outdoor Yoga Visual (Cols 8-12) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-[360px] aspect-[4/5] overflow-hidden rounded-2xl border-4 border-[#FAF8F5] shadow-lg bg-white group">
+              <Image
+                src="/1.jpg"
+                alt="Woman relaxing outdoors in a beautiful yoga stretch pose, with fruits and water bottle in the background"
+                fill
+                sizes="(max-width: 640px) 100vw, 20rem"
+                className="object-cover transition-transform duration-500 group-hover:scale-102"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Area: Group Education intro card */}
+        <div className="mx-auto max-w-4xl text-center border-t border-[#4A4335]/10 pt-16 mb-16">
+          <div className="bg-[#FAF8F5]/55 border border-[#4A4335]/10 rounded-[2rem] p-6 md:p-10 shadow-sm backdrop-blur-sm">
+            <p className="text-base sm:text-lg text-[#5A5346] leading-relaxed mb-6 font-sans">
+              <strong className="font-serif italic text-lg text-[#4A4335]">Menopause</strong> is a <strong className="font-semibold text-[#4A4335]">shared experience</strong> for all women, even though our health journeys may look different. At <strong className="font-semibold text-[#4A4335]">Embrace Women&apos;s Healthcare</strong>, we&apos;re here to walk alongside you – offering a welcoming community, trusted education, and access to effective hormone therapy and nutritional support.
+            </p>
+            <p className="text-sm sm:text-base text-[#5A5346] leading-relaxed font-sans">
+              We offer <strong className="font-semibold text-[#4A4335]">monthly group education</strong> at <strong className="font-semibold text-[#4A4335]">The Wellness Collective</strong> along with <strong className="font-semibold text-[#4A4335]">individual telehealth visits</strong> to create a personalized care plan that fits your needs perfectly.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Interactive Area Grid: 4 Clinical Focus Cards */}
+        <div className="text-center mb-10">
+          <h3 className="font-serif italic text-2xl md:text-3xl text-[#4A4335] mb-2">
+            Clinical Focus Areas
+          </h3>
+          <p className="text-xs sm:text-sm text-[#8C6C58] tracking-wider uppercase font-semibold">
+            Click into each focus area for in-depth clinical details
+          </p>
+        </div>
+
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2">
           {services.map((item, index) => (
             <article
               key={item.title}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="group flex flex-col overflow-hidden rounded-2xl bg-[#FAF8F5] border border-[#4A4335]/10 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
             >
-              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
-                <Image
-                  src={item.image}
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
               <div className="flex flex-1 flex-col items-center p-6 text-center sm:p-8">
-                <h3 className="text-lg font-semibold text-healthcare-charcoal">
+                <h4 className="font-serif text-lg md:text-xl font-bold text-[#4A4335] mb-2">
                   {item.title}
-                </h3>
-                <p className="mt-2 text-sm font-medium text-healthcare-primary">
+                </h4>
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#8C6C58] mb-3">
                   {item.headline}
                 </p>
-                <p className="mt-3 flex-1 text-healthcare-charcoal/90">
+                <p className="text-sm text-[#5A5346] flex-1 leading-relaxed">
                   {item.solution}
                 </p>
-                <div className="mt-8 flex w-full justify-center">
+                <div className="mt-6 flex w-full justify-center">
                   <button
                     type="button"
                     onClick={() => setActiveService(index)}
-                    className="group inline-flex items-center gap-2 rounded-full border border-pink-100 bg-pink-50/50 px-6 py-2.5 font-medium text-healthcare-primary transition-all duration-300 hover:bg-healthcare-primary hover:text-white hover:shadow-md active:scale-95"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#EAE5D9] px-5 py-2 text-xs font-semibold text-[#4A4335] border border-[#4A4335]/10 transition-all duration-300 hover:bg-[#4A4335] hover:text-[#FAF8F5] cursor-pointer"
                   >
                     Learn more
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
+                    <span>→</span>
                   </button>
                 </div>
               </div>
@@ -217,6 +273,7 @@ export default function Services() {
         </div>
       </motion.div>
 
+      {/* Interactive Detail Popup Modal */}
       <AnimatePresence>
         {activeService !== null && service && (
           <motion.div
@@ -229,59 +286,55 @@ export default function Services() {
             <button
               type="button"
               aria-label="Close modal"
-              className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/30 backdrop-blur-sm cursor-pointer"
               onClick={() => setActiveService(null)}
             />
             <motion.div
-              className="relative z-10 mx-auto w-full max-w-2xl max-h-[calc(100vh-120px)] overflow-y-auto rounded-3xl bg-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.1)] sm:p-8"
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative z-10 mx-auto w-full max-w-2xl max-h-[calc(100vh-120px)] overflow-y-auto rounded-3xl bg-[#FAF8F5] border border-[#4A4335]/25 p-6 shadow-2xl sm:p-8 text-left"
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              exit={{ opacity: 0, scale: 0.96, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 350 }}
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Close Button */}
               <button
                 type="button"
                 aria-label="Close"
-                className="absolute right-4 top-4 rounded-full p-2 text-healthcare-charcoal/60 transition hover:bg-pink-50 hover:text-healthcare-charcoal"
+                className="absolute right-4 top-4 rounded-full p-1.5 text-[#4A4335]/60 hover:bg-[#4A4335]/5 hover:text-[#4A4335] transition cursor-pointer"
                 onClick={() => setActiveService(null)}
               >
                 <X className="h-5 w-5" strokeWidth={2} />
               </button>
 
-              <div className="flex flex-col items-center pt-2 text-center">
-                <h3 className="text-3xl font-semibold tracking-tight text-healthcare-charcoal">
+              <div className="flex flex-col pt-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#8C6C58] mb-1">
+                  Clinical Insights
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl text-[#4A4335] font-semibold mb-6 pb-2 border-b border-[#4A4335]/15">
                   {service.title}
                 </h3>
 
-                <div className="mt-6 w-full max-w-prose space-y-4 text-center">
+                <div className="space-y-5 text-sm sm:text-base leading-relaxed text-[#5A5346] font-sans mb-8">
                   {service.expandedContent.map(({ label, text }, i) => (
-                    <div key={label || i} className="mx-auto text-center">
-                      {label ? (
-                        <>
-                          <span className="font-semibold text-healthcare-primary">
-                            {label}:
-                          </span>{" "}
-                          <span className="text-gray-600">{text}</span>
-                        </>
-                      ) : (
-                        <span className="text-gray-600">{text}</span>
+                    <div key={label || i} className="space-y-1">
+                      {label && (
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-[#4A4335]">
+                          {label}
+                        </h4>
                       )}
+                      <p className="text-sm text-[#5A5346]">
+                        {text}
+                      </p>
                     </div>
                   ))}
                 </div>
 
-                {service.ctaText && (
-                  <p className="mt-6 text-center font-medium text-healthcare-charcoal">
-                    {service.ctaText}
-                  </p>
-                )}
-
-                <div className="mt-8 flex w-full flex-col-reverse items-center justify-center gap-3 sm:mx-auto sm:flex-row sm:gap-4">
+                <div className="flex w-full flex-col sm:flex-row gap-3 pt-4 border-t border-[#4A4335]/10 mt-auto">
                   <button
                     type="button"
                     onClick={() => setActiveService(null)}
-                    className="w-full rounded-lg border border-healthcare-charcoal/20 bg-transparent px-5 py-2.5 text-sm font-medium text-healthcare-charcoal transition hover:bg-healthcare-charcoal/5 sm:w-auto"
+                    className="w-full sm:w-auto rounded-full border border-[#4A4335]/25 bg-transparent px-6 py-2.5 text-xs font-semibold text-[#4A4335] transition hover:bg-[#4A4335]/5 cursor-pointer text-center"
                   >
                     Close
                   </button>
@@ -289,13 +342,12 @@ export default function Services() {
                     type="button"
                     onClick={() => {
                       setActiveService(null);
-                      smoothScrollTo("contact");
+                      scrollToContact();
                     }}
-                    className="inline-flex w-full items-center justify-center rounded-full bg-healthcare-primary px-8 py-3 font-medium text-white shadow-lg transition-colors hover:bg-healthcare-primary/90 hover:shadow-xl sm:w-auto"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className="w-full sm:w-auto rounded-full bg-[#4A4335] text-[#FAF8F5] px-8 py-2.5 text-xs font-semibold transition hover:bg-[#5A5346] hover:shadow cursor-pointer text-center"
+                    whileTap={{ scale: 0.97 }}
                   >
-                    {service.ctaButtonLabel ?? "Get in Touch"}
+                    Get in Touch
                   </motion.button>
                 </div>
               </div>
