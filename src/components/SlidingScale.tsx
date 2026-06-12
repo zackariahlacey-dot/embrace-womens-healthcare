@@ -2,25 +2,22 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Check, Info } from "lucide-react";
+import { Check, Info, ArrowRight } from "lucide-react";
 
-const pricingOptions = [
+const visitOptions = [
   {
     title: "Initial Comprehensive Visit",
     duration: "1 hour",
-    price: "$150 - $200",
     desc: "A thorough, in-depth evaluation of your medical history, health concerns, and personalized wellness strategy.",
   },
   {
     title: "Follow-Up Visit",
     duration: "30 minutes",
-    price: "$75 - $100",
     desc: "Routine monitoring, adjusting care protocols, discussing lab outcomes, and continuous wellness counseling.",
   },
   {
     title: "Acute Visit",
     duration: "15 minutes",
-    price: "$25 - $50",
     desc: "Focused assessment for swift relief and prescription plans for unexpected minor ailments or infections.",
   },
 ];
@@ -32,6 +29,15 @@ const policies = [
   "All services provided by telehealth appointment",
   "Receipts available to submit to insurance reimbursement",
 ];
+
+function scrollToContact() {
+  const element = document.getElementById("contact");
+  if (element) {
+    const yOffset = -120;
+    const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+}
 
 export default function SlidingScale() {
   return (
@@ -70,9 +76,9 @@ export default function SlidingScale() {
               </p>
             </div>
 
-            {/* Pricing Grid */}
+            {/* Visit Types Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {pricingOptions.map((opt, i) => (
+              {visitOptions.map((opt, i) => (
                 <motion.div
                   key={opt.title}
                   className="flex flex-col bg-white border border-[#4A4335]/10 rounded-2xl p-5 shadow-sm transition-all duration-300 hover:shadow-md"
@@ -84,15 +90,20 @@ export default function SlidingScale() {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-[#8C6C58] mb-1">
                     {opt.duration}
                   </span>
-                  <h3 className="font-serif text-sm font-semibold text-[#4A4335] leading-tight mb-2 h-10 flex items-center">
+                  <h3 className="font-serif text-sm font-semibold text-[#4A4335] leading-tight mb-3 h-10 flex items-center">
                     {opt.title}
                   </h3>
-                  <div className="font-serif text-lg md:text-xl font-bold text-[#4A4335] mb-2">
-                    {opt.price}
-                  </div>
-                  <p className="text-xs text-[#5A5346]/80 leading-relaxed font-sans mt-auto">
+                  <p className="text-xs text-[#5A5346]/80 leading-relaxed font-sans mb-4">
                     {opt.desc}
                   </p>
+                  <button
+                    type="button"
+                    onClick={scrollToContact}
+                    className="mt-auto inline-flex items-center justify-center gap-1.5 rounded-full bg-[#4A4335] text-white text-xs font-medium px-4 py-2 hover:bg-[#8C6C58] transition-colors duration-300"
+                  >
+                    Contact Us
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
                 </motion.div>
               ))}
             </div>
@@ -132,8 +143,8 @@ export default function SlidingScale() {
           >
             <div className="relative w-full max-w-[360px] aspect-[4/5] overflow-hidden rounded-2xl border-4 border-[#EAE5D9] shadow-lg bg-white group">
               <Image
-                src="/3.jpg"
-                alt="Smiling brunette woman relaxing in an armchair using her smartphone to schedule a telehealth consultation"
+                src="/slidingscale.avif"
+                alt="Accessible, personalized women's healthcare on a sliding-scale fee model"
                 fill
                 sizes="(max-width: 640px) 100vw, 20rem"
                 className="object-cover transition-transform duration-500 group-hover:scale-102"
