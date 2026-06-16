@@ -32,23 +32,26 @@ export default function About() {
 
         {/* Right Side: Copy from 'Who we are' Column */}
         <div className="flex flex-col justify-center text-left">
-          <h2 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#4A4335] mb-6">
+          <h2 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#4A4335] mb-3">
             Who we are
           </h2>
-          
-          <p className="font-serif text-[#8C6C58] font-semibold text-lg mb-4">
+
+          <p className="mt-1 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide mb-6">
             Bethany Cook, WHNP-BC, CNM
           </p>
 
           <div className="space-y-6 text-[#5A5346] text-sm sm:text-base leading-relaxed font-sans">
             <p>
-              With over 20 years of experience as a Women's Health Nurse Practitioner and Certified Nurse Midwife, Bethany Cook offers thoughtful, personalized care for women at every stage of their health journey.
+              With over 20 years of experience as a Women&apos;s Health Nurse Practitioner and Certified Nurse Midwife, Bethany Cook offers thoughtful, personalized care for women at every stage of their health journey.
             </p>
             <p>
-              Whether you are seeking more time, more support, or a flexible option beyond traditional care, Embrace Women's Healthcare is designed to meet your needs.
+              Bethany&apos;s clinical background spans midlife and menopausal transition, hormone replacement therapy, sexual wellness, family planning, and primary care coordination. Her approach is grounded in spending the time to actually listen — so the plan you walk away with reflects you, not a script.
             </p>
             <p>
-              Through telehealth and thoughtfully curated group education, we make care feel more accessible, deeply supportive, and beautifully tailored to your life—guided by Bethany's distinction as a member of <strong>The Menopause Society</strong> and a <strong>Certified Menopause Professional</strong> through UVM.
+              Whether you are seeking more time, more support, or a flexible option beyond traditional care, Embrace Women&apos;s Healthcare is designed to meet your needs.
+            </p>
+            <p>
+              Through telehealth and thoughtfully curated group education, we make care feel more accessible, deeply supportive, and beautifully tailored to your life — guided by Bethany&apos;s distinction as a member of The Menopause Society and a Certified Menopause Professional through UVM.
             </p>
           </div>
 

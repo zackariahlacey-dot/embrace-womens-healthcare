@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, UserPlus, ZoomIn, CheckCircle2 } from "lucide-react";
+import { Calendar, UserPlus } from "lucide-react";
 import { BOOK_APPOINTMENT_URL } from "@/lib/constants";
 
 export default function HowItWorks() {
@@ -73,32 +73,32 @@ export default function HowItWorks() {
           >
             {/* Steps list */}
             <div className="space-y-6">
-              {/* Step 1 */}
-              <div className="flex gap-4">
-                <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#4A4335] shadow-sm">
-                  <UserPlus className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-serif italic text-lg text-[#4A4335] font-semibold mb-1">
-                    1. Connect & Learn
-                  </h3>
-                  <p className="text-sm text-[#5A5346] leading-relaxed">
-                    Join us for monthly meet-and-greets and community education at <strong className="font-semibold text-[#4A4335]">The Wellness Collective</strong> in Colchester, Vermont, in person or via Zoom.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 2 */}
+              {/* Schedule Your Visit */}
               <div className="flex gap-4">
                 <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#4A4335] shadow-sm">
                   <Calendar className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif italic text-lg text-[#4A4335] font-semibold mb-1">
-                    2. Schedule Your Visit
+                  <h3 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold mb-1">
+                    Schedule Your Visit
                   </h3>
                   <p className="text-sm text-[#5A5346] leading-relaxed">
-                    When you are ready, simply explore our site, create your <strong className="font-semibold text-[#4A4335]">Optimantra</strong> account, and schedule your appointment online.
+                    When you are ready, simply explore our site, create your Optimantra account, and schedule your appointment online.
+                  </p>
+                </div>
+              </div>
+
+              {/* Embrace Wellness */}
+              <div className="flex gap-4">
+                <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#4A4335] shadow-sm">
+                  <UserPlus className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold mb-1">
+                    Embrace Wellness
+                  </h3>
+                  <p className="text-sm text-[#5A5346] leading-relaxed">
+                    We offer monthly gatherings via Zoom or in person at the Wellness Collective in Colchester. Please join us as we review anatomy and physiology, lifestyle recommendations, and the root causes of key women&apos;s health issues such as midlife transition, endometriosis, and PCOS.
                   </p>
                 </div>
               </div>

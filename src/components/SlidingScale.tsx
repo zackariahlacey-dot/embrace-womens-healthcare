@@ -8,17 +8,14 @@ import { Check, Info, ArrowRight } from "lucide-react";
 const visitOptions = [
   {
     title: "Initial Comprehensive Visit",
-    duration: "1 hour",
     desc: "A thorough, in-depth evaluation of your medical history, health concerns, and personalized wellness strategy.",
   },
   {
     title: "Follow-Up Visit",
-    duration: "30 minutes",
     desc: "Routine monitoring, adjusting care protocols, discussing lab outcomes, and continuous wellness counseling.",
   },
   {
     title: "Acute Visit",
-    duration: "15 minutes",
     desc: "Focused assessment for swift relief and prescription plans for unexpected minor ailments or infections.",
   },
 ];
@@ -49,13 +46,13 @@ export default function SlidingScale() {
             Our Sliding Scale
           </motion.h2>
           <motion.p
-            className="mt-3 text-sm sm:text-base text-[#8C6C58] font-serif italic tracking-wide"
+            className="mt-3 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            "We believe quality healthcare should be accessible."
+            We believe quality healthcare should be accessible.
           </motion.p>
         </div>
 
@@ -64,7 +61,7 @@ export default function SlidingScale() {
           <div className="lg:col-span-7 space-y-8 text-left">
             <div>
               <p className="text-base text-[#5A5346] leading-relaxed font-sans mb-6">
-                Our sliding scale model ensures you receive thoughtful, dedicated, and highly personalized care at a price point that respects your financial realities.
+                Our sliding scale model ensures you receive thoughtful, dedicated, and highly personalized care that respects your financial realities.
               </p>
             </div>
 
@@ -79,10 +76,7 @@ export default function SlidingScale() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
                 >
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#8C6C58] mb-1">
-                    {opt.duration}
-                  </span>
-                  <h3 className="font-serif text-sm font-semibold text-[#4A4335] leading-tight mb-3 h-10 flex items-center">
+                  <h3 className="font-serif text-base md:text-lg font-semibold text-[#4A4335] leading-tight mb-3">
                     {opt.title}
                   </h3>
                   <p className="text-xs text-[#5A5346]/80 leading-relaxed font-sans mb-4">

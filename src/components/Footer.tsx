@@ -25,10 +25,10 @@ export function Footer() {
           </p>
 
           <a
-            href="mailto:bethany@embracewomenshealthcare.com"
+            href="tel:8027359779"
             className="text-sm font-semibold text-[#8C6C58] hover:text-[#4A4335] transition-colors"
           >
-            bethany@embracewomenshealthcare.com
+            802-735-9779
           </a>
         </div>
 

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useActionState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle, Loader2, Mail, MapPin, Globe, Shield } from "lucide-react";
+import { CheckCircle, Loader2, Phone, MapPin, Globe, Shield } from "lucide-react";
 import { submitContactForm } from "@/app/actions";
 
 const initialState = null;
@@ -88,20 +88,20 @@ export function ContactForm() {
                 </div>
               </div>
 
-              {/* Email */}
+              {/* Phone */}
               <div className="flex items-center gap-4 bg-[#FAF8F5]/65 border border-[#4A4335]/10 rounded-2xl p-4 shadow-sm backdrop-blur-sm">
                 <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58]">
-                  <Mail className="w-5 h-5" />
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-[#8C6C58] uppercase tracking-wider">
-                    Email Address
+                    Phone
                   </p>
-                  <a 
-                    href="mailto:bethany@embracewomenshealthcare.com"
+                  <a
+                    href="tel:8027359779"
                     className="text-sm font-semibold text-[#4A4335] hover:text-[#8C6C58] transition-colors"
                   >
-                    bethany@embracewomenshealthcare.com
+                    802-735-9779
                   </a>
                 </div>
               </div>
