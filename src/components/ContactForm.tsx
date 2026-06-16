@@ -32,9 +32,9 @@ export function ContactForm() {
   }, [isSuccessOpen]);
 
   return (
-    <section 
-      id="contact" 
-      className="bg-[#EAE5D9] px-4 py-20 pt-24 sm:px-6 lg:px-8 lg:py-28 scroll-mt-24 border-t border-[#4A4335]/15"
+    <section
+      id="contact"
+      className="bg-[#EAE5D9] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 scroll-mt-24 border-t border-[#4A4335]/15"
     >
       <div className="mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

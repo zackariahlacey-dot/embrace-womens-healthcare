@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Check, Info, ArrowRight } from "lucide-react";
 
@@ -30,20 +31,11 @@ const policies = [
   "Receipts available to submit to insurance reimbursement",
 ];
 
-function scrollToContact() {
-  const element = document.getElementById("contact");
-  if (element) {
-    const yOffset = -120;
-    const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
-}
-
 export default function SlidingScale() {
   return (
     <section
       id="sliding-scale"
-      className="bg-[#FAF8F5] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 scroll-mt-20 border-t border-[#4A4335]/5"
+      className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 scroll-mt-20 border-t border-[#4A4335]/5"
     >
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-16">
@@ -96,14 +88,13 @@ export default function SlidingScale() {
                   <p className="text-xs text-[#5A5346]/80 leading-relaxed font-sans mb-4">
                     {opt.desc}
                   </p>
-                  <button
-                    type="button"
-                    onClick={scrollToContact}
+                  <Link
+                    href="/contact"
                     className="mt-auto inline-flex items-center justify-center gap-1.5 rounded-full bg-[#4A4335] text-white text-xs font-medium px-4 py-2 hover:bg-[#8C6C58] transition-colors duration-300"
                   >
                     Contact Us
                     <ArrowRight className="w-3 h-3" />
-                  </button>
+                  </Link>
                 </motion.div>
               ))}
             </div>

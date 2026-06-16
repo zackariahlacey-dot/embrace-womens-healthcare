@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const fadeIn = {
@@ -10,15 +11,6 @@ const fadeIn = {
 };
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -120;
-      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  };
-
   return (
     <section className="relative w-full pt-28 pb-16 px-4 md:pt-40 md:pb-24 bg-[#EAE5D9]">
       <div className="mx-auto max-w-4xl text-center flex flex-col items-center">
@@ -101,18 +93,18 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <button
-            onClick={() => scrollToSection("services")}
-            className="w-full sm:w-auto rounded-full bg-[#4A4335] text-[#FAF8F5] px-8 py-3.5 text-sm font-semibold tracking-wide shadow-md transition-all duration-300 hover:bg-[#5A5346] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          <Link
+            href="/services"
+            className="w-full sm:w-auto rounded-full bg-[#4A4335] text-[#FAF8F5] px-8 py-3.5 text-sm font-semibold tracking-wide shadow-md transition-all duration-300 hover:bg-[#5A5346] hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-center"
           >
             Explore Services
-          </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="w-full sm:w-auto rounded-full border border-[#4A4335] text-[#4A4335] px-8 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+          </Link>
+          <Link
+            href="/contact"
+            className="w-full sm:w-auto rounded-full border border-[#4A4335] text-[#4A4335] px-8 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-center"
           >
             Book Appointment
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

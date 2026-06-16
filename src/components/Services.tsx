@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { X, Check } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -139,6 +140,7 @@ const bulletServices = [
 ];
 
 export default function Services() {
+  const router = useRouter();
   const [activeService, setActiveService] = useState<number | null>(null);
 
   const service = activeService !== null ? services[activeService] : null;
@@ -154,19 +156,15 @@ export default function Services() {
     };
   }, [activeService]);
 
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      const yOffset = -120;
-      const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+  const goToContact = () => {
+    setActiveService(null);
+    router.push("/contact");
   };
 
   return (
     <section
       id="services"
-      className="bg-[#EAE5D9] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 scroll-mt-20 border-t border-[#4A4335]/15"
+      className="bg-[#EAE5D9] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 scroll-mt-20 border-t border-[#4A4335]/15"
     >
       <motion.div
         className="mx-auto max-w-6xl"
@@ -340,10 +338,7 @@ export default function Services() {
                   </button>
                   <motion.button
                     type="button"
-                    onClick={() => {
-                      setActiveService(null);
-                      scrollToContact();
-                    }}
+                    onClick={goToContact}
                     className="w-full sm:w-auto rounded-full bg-[#4A4335] text-[#FAF8F5] px-8 py-2.5 text-xs font-semibold transition hover:bg-[#5A5346] hover:shadow cursor-pointer text-center"
                     whileTap={{ scale: 0.97 }}
                   >

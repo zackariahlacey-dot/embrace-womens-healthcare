@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-[#FAF8F5] px-4 py-20 sm:px-6 lg:px-8 lg:py-28 scroll-mt-20 border-t border-[#4A4335]/5"
+      className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 scroll-mt-20 border-t border-[#4A4335]/5"
     >
       <motion.div
         className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16"
