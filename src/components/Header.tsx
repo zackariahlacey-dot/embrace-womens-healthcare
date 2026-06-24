@@ -22,6 +22,8 @@ const patientInfoLinks = [
   { href: "/patient-info/wellness-collective", label: "The Wellness Collective" },
   { href: "/patient-info/forms", label: "Forms" },
   { href: "/patient-info/patient-resources", label: "Patient Resources" },
+  { href: "/patient-info/newsletters", label: "Newsletters" },
+  { href: "/patient-info/videos", label: "Videos" },
   { href: "/patient-info/patient-portal", label: "Patient Portal" },
 ];
 

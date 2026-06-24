@@ -79,13 +79,6 @@ export function Hero() {
               },
             }}
           >
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.6 }}
-              className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8C6C58] mb-3"
-            >
-              Hi, I&apos;m Bethany
-            </motion.p>
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.6 }}
@@ -103,9 +96,19 @@ export function Hero() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.6 }}
-              className="text-sm sm:text-base text-[#5A5346] leading-relaxed font-sans mb-8"
+              className="text-sm sm:text-base text-[#5A5346] leading-relaxed font-sans mb-6"
             >
               I focus on midlife transition, hormone therapy, sexual wellness, and the everyday women&apos;s-health concerns that deserve more time than a 15-minute slot allows.
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              transition={{ duration: 0.6 }}
+              className="font-serif italic text-base sm:text-lg text-[#8C6C58] leading-relaxed mb-8"
+            >
+              Let&apos;s embrace your strength, balance, and renewal.
+              <span className="block mt-1 text-[#4A4335] not-italic font-sans text-sm tracking-wide">
+                — Bethany
+              </span>
             </motion.p>
 
             <motion.div

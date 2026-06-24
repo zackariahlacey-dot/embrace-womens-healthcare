@@ -23,6 +23,16 @@ const links = [
     desc: "Educational guides, recommended reading, and tools to support your wellness journey.",
   },
   {
+    href: "/patient-info/newsletters",
+    title: "Newsletters",
+    desc: "Bethany's wellness newsletters — practical reading on midlife, hormones, and women's health.",
+  },
+  {
+    href: "/patient-info/videos",
+    title: "Videos",
+    desc: "Short educational videos from Bethany on the topics we cover most in clinic. Launching July.",
+  },
+  {
     href: "/patient-info/patient-portal",
     title: "Patient Portal",
     desc: "Sign in to your account, manage appointments, and access your records.",
