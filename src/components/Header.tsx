@@ -9,10 +9,13 @@ import { Phone, Printer, ChevronDown, Sparkles } from "lucide-react";
 import { BOOK_NEW_PATIENT_URL, PATIENT_PORTAL_URL } from "@/lib/constants";
 
 const newPatientButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-[#4A4335] px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-[#FAF8F5] shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow-md border border-[#4A4335]/10 whitespace-nowrap";
+  "inline-flex items-center justify-center rounded-full bg-[#4A4335] px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#FAF8F5] shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow-md border border-[#4A4335]/10 whitespace-nowrap";
 
 const portalButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-[#FAF8F5] border border-[#4A4335]/30 px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A4335] shadow-sm transition-all duration-300 hover:bg-white hover:border-[#4A4335]/50 hover:shadow-md whitespace-nowrap";
+  "inline-flex items-center justify-center rounded-full bg-[#FAF8F5] border border-[#4A4335]/30 px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A4335] shadow-sm transition-all duration-300 hover:bg-white hover:border-[#4A4335]/50 hover:shadow-md whitespace-nowrap";
+
+const contactButtonClass =
+  "inline-flex items-center justify-center rounded-full border border-[#4A4335]/25 px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A4335] transition-all duration-300 hover:bg-[#4A4335]/5 hover:border-[#4A4335]/50 whitespace-nowrap";
 
 const navLinkBase =
   "relative text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer sm:text-sm";
@@ -161,13 +164,20 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {/* Small screen quick nav */}
             <nav className="flex md:hidden items-center gap-3 mr-1">
               <Link href="/about" className={mobileLinkClass(isActive("/about"))}>About</Link>
               <Link href="/services" className={mobileLinkClass(isActive("/services"))}>Services</Link>
               <Link href="/patient-info" className={mobileLinkClass(isActive("/patient-info"))}>Info</Link>
             </nav>
+
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Link href="/contact" className={contactButtonClass}>
+                <span className="hidden sm:inline">Contact Us</span>
+                <span className="sm:hidden">Contact</span>
+              </Link>
+            </motion.div>
 
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <a

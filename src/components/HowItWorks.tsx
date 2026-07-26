@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, UserPlus } from "lucide-react";
-import { BOOK_APPOINTMENT_URL } from "@/lib/constants";
+import { Calendar, UserPlus, LogIn, ArrowRight } from "lucide-react";
+import { BOOK_NEW_PATIENT_URL, PATIENT_PORTAL_URL } from "@/lib/constants";
 
 export default function HowItWorks() {
   return (
@@ -104,80 +104,36 @@ export default function HowItWorks() {
               </div>
             </div>
 
-            {/* QR Code and Scheduling Button Area */}
-            <div className="relative overflow-hidden flex flex-col sm:flex-row items-center gap-6 bg-[#FAF8F5]/50 border border-[#4A4335]/10 rounded-3xl p-6 shadow-sm backdrop-blur-sm">
-              
-              {/* Coming Soon Blur Overlay */}
-              <div className="absolute inset-0 bg-[#FAF8F5]/65 backdrop-blur-[5px] z-20 flex flex-col items-center justify-center text-center p-4 select-none">
-                <div className="bg-[#FAF8F5] border border-[#4A4335]/15 px-6 py-4 rounded-2xl shadow-lg max-w-[280px] transition-transform duration-300 hover:scale-[1.02]">
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8C6C58] mb-1 font-sans">
-                    Patient Portal
-                  </p>
-                  <h4 className="font-serif italic text-lg sm:text-xl text-[#4A4335] font-semibold">
-                    Coming Soon
-                  </h4>
-                  <p className="text-[10px] text-[#5A5346]/80 mt-1.5 font-sans leading-relaxed">
-                    Online scheduling and patient registration will be available here soon.
-                  </p>
-                </div>
+            {/* Patient Portal Access Panel */}
+            <div className="flex flex-col gap-4 bg-[#FAF8F5]/70 border border-[#4A4335]/10 rounded-3xl p-6 shadow-sm backdrop-blur-sm">
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-[#8C6C58] mb-1.5">
+                  Online Scheduling
+                </h4>
+                <p className="text-xs sm:text-sm text-[#5A5346] leading-relaxed">
+                  Established patients log in to Optimantra to schedule visits and access your records. New here? Book your first appointment directly online.
+                </p>
               </div>
 
-              {/* QR Code Container with scanning effect */}
-              <div className="relative flex shrink-0 w-32 h-32 bg-white rounded-xl border border-[#4A4335]/15 p-2 shadow-inner group overflow-hidden items-center justify-center">
-                {/* Visual QR Code using geometric SVG elements */}
-                <svg viewBox="0 0 100 100" className="w-full h-full text-[#4A4335]" fill="currentColor">
-                  {/* Outer corners */}
-                  <rect x="0" y="0" width="30" height="30" />
-                  <rect x="3" y="3" width="24" height="24" fill="white" />
-                  <rect x="8" y="8" width="14" height="14" />
-                  
-                  <rect x="70" y="0" width="30" height="30" />
-                  <rect x="73" y="3" width="24" height="24" fill="white" />
-                  <rect x="78" y="8" width="14" height="14" />
-                  
-                  <rect x="0" y="70" width="30" height="30" />
-                  <rect x="3" y="73" width="24" height="24" fill="white" />
-                  <rect x="8" y="78" width="14" height="14" />
-                  
-                  {/* Decorative noise/pixels to simulate QR code */}
-                  <rect x="40" y="10" width="10" height="10" />
-                  <rect x="50" y="20" width="10" height="10" />
-                  <rect x="45" y="40" width="10" height="15" />
-                  <rect x="15" y="45" width="15" height="10" />
-                  <rect x="75" y="40" width="10" height="10" />
-                  <rect x="80" y="55" width="15" height="10" />
-                  <rect x="40" y="70" width="15" height="10" />
-                  <rect x="55" y="80" width="10" height="15" />
-                  <rect x="70" y="75" width="10" height="10" />
-                  <rect x="85" y="85" width="10" height="10" />
-                </svg>
-
-                {/* Vertical Laser scanning line effect */}
-                <motion.div
-                  className="absolute left-0 right-0 h-[2px] bg-[#8C6C58] shadow-[0_0_8px_#8C6C58]"
-                  animate={{ top: ["4%", "96%"] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                />
-              </div>
-
-              {/* Instructions and CTA Button */}
-              <div className="flex-1 text-center sm:text-left space-y-4">
-                <div>
-                  <h4 className="text-xs font-semibold uppercase tracking-wider text-[#8C6C58] mb-1">
-                    Book Online Instantly
-                  </h4>
-                  <p className="text-xs text-[#5A5346] leading-relaxed">
-                    Scan this QR code with your mobile camera to open scheduling directly, or click the button below to register online.
-                  </p>
-                </div>
-
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href={BOOK_APPOINTMENT_URL}
+                  href={PATIENT_PORTAL_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-[#4A4335] text-[#FAF8F5] px-5 py-2.5 text-xs font-semibold tracking-wide shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow active:scale-[0.98]"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#4A4335] text-[#FAF8F5] px-5 py-3 text-xs font-semibold tracking-wide shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow active:scale-[0.98]"
                 >
-                  Create Account & Schedule
+                  <LogIn className="w-4 h-4" aria-hidden />
+                  Patient Portal Login
+                </a>
+                <a
+                  href={BOOK_NEW_PATIENT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-[#4A4335] text-[#4A4335] px-5 py-3 text-xs font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5 active:scale-[0.98]"
+                >
+                  <UserPlus className="w-4 h-4" aria-hidden />
+                  New Patient Appt
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

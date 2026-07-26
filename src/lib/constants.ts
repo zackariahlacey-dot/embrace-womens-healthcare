@@ -12,11 +12,6 @@ export const BOOK_NEW_PATIENT_URL =
   "https://www.optimantra.com/optimus/patient/patientaccess/prospects?pid=YVpJNGdONzZMSzI1NjRtY3ozL2lKZz09";
 
 /**
- * Book Appointment URL — points at the new-patient prospect flow.
- */
-export const BOOK_APPOINTMENT_URL = BOOK_NEW_PATIENT_URL;
-
-/**
  * JotForm HIPAA form ID for the patient contact / appointment request form.
  * Embed handler auto-resizes the iframe based on postMessage from JotForm.
  */
