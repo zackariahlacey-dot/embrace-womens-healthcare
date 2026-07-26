@@ -42,9 +42,6 @@ export const metadata: Metadata = {
     description:
       "Compassionate, woman-centered care in Colchester, VT & via Telehealth. Specializing in Hormone Therapy, Vaginal Health, and Nutritional Support.",
   },
-  icons: {
-    icon: "/embracefavicon.ico",
-  },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "https://embracewomenshealthcare.com"
   ),
