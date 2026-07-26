@@ -119,23 +119,28 @@ export function HomeFeatured() {
             </motion.div>
 
             <motion.div
-              className="flex gap-4 bg-[#FAF8F5] rounded-2xl border border-[#4A4335]/10 p-6 shadow-sm"
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#EAE5D9] border border-[#4A4335]/10 items-center justify-center text-[#4A4335]">
-                <UserPlus className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold mb-2">
-                  Embrace Wellness
-                </h3>
-                <p className="text-sm text-[#5A5346] leading-relaxed font-sans">
-                  Join our monthly gatherings via Zoom or in person at the Wellness Collective in Colchester.
-                </p>
-              </div>
+              <Link
+                href="/patient-info/wellness-collective"
+                className="group flex gap-4 bg-[#FAF8F5] rounded-2xl border border-[#4A4335]/10 p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 hover:border-[#4A4335]/20"
+              >
+                <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#EAE5D9] border border-[#4A4335]/10 items-center justify-center text-[#4A4335]">
+                  <UserPlus className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold mb-2 inline-flex items-center gap-1.5 group-hover:text-[#8C6C58] transition-colors">
+                    Embrace Wellness
+                    <ArrowRight className="w-4 h-4 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
+                  </h3>
+                  <p className="text-sm text-[#5A5346] leading-relaxed font-sans">
+                    Join our monthly gatherings via Zoom or in person at the Wellness Collective in Colchester.
+                  </p>
+                </div>
+              </Link>
             </motion.div>
           </div>
 

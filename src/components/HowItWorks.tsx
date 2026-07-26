@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, UserPlus, LogIn, ArrowRight } from "lucide-react";
 import { BOOK_NEW_PATIENT_URL, PATIENT_PORTAL_URL } from "@/lib/constants";
@@ -88,20 +89,24 @@ export default function HowItWorks() {
                 </div>
               </div>
 
-              {/* Embrace Wellness */}
-              <div className="flex gap-4">
+              {/* Embrace Wellness — links to the Wellness Collective page */}
+              <Link
+                href="/patient-info/wellness-collective"
+                className="group flex gap-4 rounded-2xl -m-2 p-2 transition-colors duration-300 hover:bg-[#FAF8F5]/70"
+              >
                 <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#4A4335] shadow-sm">
                   <UserPlus className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold mb-1">
+                  <h3 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold mb-1 inline-flex items-center gap-1.5 group-hover:text-[#8C6C58] transition-colors">
                     Embrace Wellness
+                    <ArrowRight className="w-4 h-4 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
                   </h3>
                   <p className="text-sm text-[#5A5346] leading-relaxed">
                     We offer monthly gatherings via Zoom or in person at the Wellness Collective in Colchester. Please join us as we review anatomy and physiology, lifestyle recommendations, and the root causes of key women&apos;s health issues such as midlife transition, endometriosis, and PCOS.
                   </p>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Patient Portal Access Panel */}
