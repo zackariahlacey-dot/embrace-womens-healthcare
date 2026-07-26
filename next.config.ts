@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/sliding-scale",
+        destination: "/fee-schedule",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

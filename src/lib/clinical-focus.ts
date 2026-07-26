@@ -106,7 +106,7 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
   {
     slug: "pmos",
     title: "PMOS (formerly PCOS)",
-    image: "/3.jpg",
+    image: "/newphoto.jpg",
     headline: "Polyendocrine Metabolic Ovarian Syndrome",
     solution:
       "PMOS is a complex, systemic hormonal disorder that affects approximately 1 in 8 women globally. The name change from PCOS to PMOS reflects a more accurate understanding of the condition — it affects multiple hormone systems and metabolic processes, not just the ovaries.",

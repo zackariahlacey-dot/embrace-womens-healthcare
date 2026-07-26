@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LogIn, UserPlus } from "lucide-react";
+import { PATIENT_PORTAL_URL } from "@/lib/constants";
 
 const fadeUp = {
   initial: { opacity: 0, y: 18 },
@@ -117,21 +118,38 @@ export function Hero() {
               className="flex flex-col sm:flex-row items-center md:items-start gap-3"
             >
               <Link
-                href="/contact"
+                href="/new-patients"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#4A4335] text-[#FAF8F5] px-7 py-3.5 text-sm font-semibold tracking-wide shadow-md transition-all duration-300 hover:bg-[#5A5346] hover:-translate-y-0.5 active:translate-y-0"
               >
-                Book Appointment
+                <UserPlus className="w-4 h-4" />
+                New Patient
                 <ArrowRight className="w-4 h-4" />
               </Link>
+              <a
+                href={PATIENT_PORTAL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#4A4335] text-[#4A4335] px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5 hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <LogIn className="w-4 h-4" />
+                Already a Patient? Portal
+              </a>
+            </motion.div>
+            <motion.div
+              variants={fadeUp}
+              transition={{ duration: 0.6 }}
+              className="mt-4 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs sm:text-sm text-[#5A5346]"
+            >
               <Link
                 href="/about"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-[#4A4335] text-[#4A4335] px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5 hover:-translate-y-0.5 active:translate-y-0"
+                className="font-semibold uppercase tracking-wider text-[#8C6C58] hover:text-[#4A4335] transition-colors"
               >
                 More About Bethany
               </Link>
+              <span className="hidden sm:inline text-[#4A4335]/30">·</span>
               <Link
                 href="/services"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full text-[#8C6C58] px-4 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-300 hover:text-[#4A4335]"
+                className="font-semibold uppercase tracking-wider text-[#8C6C58] hover:text-[#4A4335] transition-colors"
               >
                 Explore Services
               </Link>

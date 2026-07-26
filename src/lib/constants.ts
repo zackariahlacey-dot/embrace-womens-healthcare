@@ -1,16 +1,23 @@
 /**
- * Athenahealth patient portal ID. Replace with Bethany's specific ID when she provides it.
+ * Optimantra patient portal — established patients log in here to schedule.
  */
-export const ATHENAHEALTH_PORTAL_ID = "sd23413";
-
-const ATHENAHEALTH_PORTAL_BASE = "https://es.portal.athenahealth.com";
-
-/**
- * Patient portal login URL (Athenahealth). Swap ATHENAHEALTH_PORTAL_ID above to update.
- */
-export const PATIENT_PORTAL_URL = `${ATHENAHEALTH_PORTAL_BASE}/${ATHENAHEALTH_PORTAL_ID}/`;
+export const PATIENT_PORTAL_URL =
+  "https://www.optimantra.com/optimus/om/patient/login";
 
 /**
- * Book Appointment URL — points to her Athenahealth portal. Uses same portal ID.
+ * Optimantra new-patient direct-scheduling ("prospect") link.
+ * Used for the "New patient appt" CTA in the header and on the contact page.
  */
-export const BOOK_APPOINTMENT_URL = PATIENT_PORTAL_URL;
+export const BOOK_NEW_PATIENT_URL =
+  "https://www.optimantra.com/optimus/patient/patientaccess/prospects?pid=YVpJNGdONzZMSzI1NjRtY3ozL2lKZz09";
+
+/**
+ * Book Appointment URL — points at the new-patient prospect flow.
+ */
+export const BOOK_APPOINTMENT_URL = BOOK_NEW_PATIENT_URL;
+
+/**
+ * JotForm HIPAA form ID for the patient contact / appointment request form.
+ * Embed handler auto-resizes the iframe based on postMessage from JotForm.
+ */
+export const JOTFORM_ID = "262056886342059";

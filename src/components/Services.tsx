@@ -8,8 +8,9 @@ import { motion } from "framer-motion";
 import { clinicalFocusAreas } from "@/lib/clinical-focus";
 
 interface BulletService {
-  text: string;
+  text?: string;
   flag?: string;
+  flagAlt?: string;
 }
 
 const bulletServices: BulletService[] = [
@@ -18,7 +19,7 @@ const bulletServices: BulletService[] = [
   { text: "Family Planning" },
   { text: "Primary Care Coordination" },
   { text: "Sexual Wellness" },
-  { text: "LGBTQIA+ friendly", flag: "/image.png" },
+  { flag: "/image.png", flagAlt: "Pride flag — LGBTQIA+ friendly practice" },
   { text: "Lifestyle education: Stress management, Physical activity, Sexual Wellness, Bone health, Sleep hygiene, Vitamin and Supplements" },
   { text: "Cancer Screenings" },
   { text: "Thyroid Management" },
@@ -56,20 +57,20 @@ export default function Services() {
               Care Options & Clinical Offerings
             </h3>
             <ul className="grid grid-cols-1 sm:grid-cols-1 gap-3.5">
-              {bulletServices.map((bullet) => (
-                <li key={bullet.text} className="flex items-start gap-3.5 text-[#5A5346] text-sm md:text-base leading-relaxed">
+              {bulletServices.map((bullet, i) => (
+                <li key={bullet.text ?? `flag-${i}`} className="flex items-start gap-3.5 text-[#5A5346] text-sm md:text-base leading-relaxed">
                   <span className="flex shrink-0 w-6 h-6 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58] mt-0.5 shadow-sm">
                     <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
                   </span>
                   <span className="inline-flex items-center gap-2 flex-wrap">
-                    <span>{bullet.text}</span>
+                    {bullet.text && <span>{bullet.text}</span>}
                     {bullet.flag && (
                       <Image
                         src={bullet.flag}
-                        alt="Pride flag"
-                        width={28}
-                        height={18}
-                        className="inline-block h-4 w-auto rounded-sm shadow-sm border border-[#4A4335]/10"
+                        alt={bullet.flagAlt ?? "Pride flag"}
+                        width={40}
+                        height={26}
+                        className="inline-block h-6 w-auto rounded-sm shadow-sm border border-[#4A4335]/10"
                       />
                     )}
                   </span>

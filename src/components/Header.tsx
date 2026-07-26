@@ -2,21 +2,42 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Printer, ChevronDown, Sparkles } from "lucide-react";
+import { BOOK_NEW_PATIENT_URL, PATIENT_PORTAL_URL } from "@/lib/constants";
 
-const ctaButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-[#4A4335] px-5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#FAF8F5] shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow-md border border-[#4A4335]/10";
+const newPatientButtonClass =
+  "inline-flex items-center justify-center rounded-full bg-[#4A4335] px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-[#FAF8F5] shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow-md border border-[#4A4335]/10 whitespace-nowrap";
 
 const portalButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-[#FAF8F5] border border-[#4A4335]/30 px-5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A4335] shadow-sm transition-all duration-300 hover:bg-white hover:border-[#4A4335]/50 hover:shadow-md";
+  "inline-flex items-center justify-center rounded-full bg-[#FAF8F5] border border-[#4A4335]/30 px-4 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A4335] shadow-sm transition-all duration-300 hover:bg-white hover:border-[#4A4335]/50 hover:shadow-md whitespace-nowrap";
 
-const navLinkClass =
-  "text-xs font-medium uppercase tracking-wider text-[#4A4335] transition-colors hover:text-[#8C6C58] cursor-pointer sm:text-sm";
+const navLinkBase =
+  "relative text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer sm:text-sm";
 
-const mobileLinkClass =
-  "text-[10px] font-bold uppercase tracking-wider text-[#4A4335] hover:text-[#8C6C58]";
+const mobileLinkBase =
+  "relative text-[10px] font-bold uppercase tracking-wider transition-colors";
+
+function navLinkClass(isActive: boolean) {
+  return `${navLinkBase} ${isActive ? "text-[#8C6C58]" : "text-[#4A4335] hover:text-[#8C6C58]"}`;
+}
+
+function mobileLinkClass(isActive: boolean) {
+  return `${mobileLinkBase} ${isActive ? "text-[#8C6C58]" : "text-[#4A4335] hover:text-[#8C6C58]"}`;
+}
+
+function ActiveUnderline({ show }: { show: boolean }) {
+  if (!show) return null;
+  return (
+    <motion.span
+      layoutId="active-nav-underline"
+      className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded-full bg-[#8C6C58]"
+      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+    />
+  );
+}
 
 const patientInfoLinks = [
   { href: "/patient-info/wellness-collective", label: "The Wellness Collective" },
@@ -29,6 +50,9 @@ const patientInfoLinks = [
 
 export function Header() {
   const [isPatientInfoOpen, setIsPatientInfoOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100]">
@@ -85,10 +109,22 @@ export function Header() {
             className="hidden md:flex items-center gap-5 lg:gap-7"
             aria-label="Main navigation"
           >
-            <Link href="/about" className={navLinkClass}>About</Link>
-            <Link href="/services" className={navLinkClass}>Services</Link>
-            <Link href="/how-it-works" className={navLinkClass}>How It Works</Link>
-            <Link href="/sliding-scale" className={navLinkClass}>Sliding Scale</Link>
+            <Link href="/about" className={navLinkClass(isActive("/about"))}>
+              About
+              <ActiveUnderline show={isActive("/about")} />
+            </Link>
+            <Link href="/services" className={navLinkClass(isActive("/services"))}>
+              Services
+              <ActiveUnderline show={isActive("/services")} />
+            </Link>
+            <Link href="/how-it-works" className={navLinkClass(isActive("/how-it-works"))}>
+              How It Works
+              <ActiveUnderline show={isActive("/how-it-works")} />
+            </Link>
+            <Link href="/fee-schedule" className={navLinkClass(isActive("/fee-schedule"))}>
+              Fee Schedule
+              <ActiveUnderline show={isActive("/fee-schedule")} />
+            </Link>
 
             {/* Patient Info — dropdown */}
             <div
@@ -98,13 +134,14 @@ export function Header() {
             >
               <Link
                 href="/patient-info"
-                className={`${navLinkClass} flex items-center gap-1`}
+                className={`${navLinkClass(isActive("/patient-info"))} flex items-center gap-1`}
                 onFocus={() => setIsPatientInfoOpen(true)}
               >
                 Patient Info
                 <ChevronDown
                   className={`w-3 h-3 transition-transform duration-200 ${isPatientInfoOpen ? "rotate-180" : ""}`}
                 />
+                <ActiveUnderline show={isActive("/patient-info")} />
               </Link>
               {isPatientInfoOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[240px]">
@@ -127,22 +164,33 @@ export function Header() {
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Small screen quick nav */}
             <nav className="flex md:hidden items-center gap-3 mr-1">
-              <Link href="/about" className={mobileLinkClass}>About</Link>
-              <Link href="/services" className={mobileLinkClass}>Services</Link>
-              <Link href="/patient-info" className={mobileLinkClass}>Info</Link>
+              <Link href="/about" className={mobileLinkClass(isActive("/about"))}>About</Link>
+              <Link href="/services" className={mobileLinkClass(isActive("/services"))}>Services</Link>
+              <Link href="/patient-info" className={mobileLinkClass(isActive("/patient-info"))}>Info</Link>
             </nav>
 
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link href="/patient-info/patient-portal" className={portalButtonClass}>
+              <a
+                href={PATIENT_PORTAL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className={portalButtonClass}
+              >
                 <span className="hidden sm:inline">Patient Portal</span>
                 <span className="sm:hidden">Portal</span>
-              </Link>
+              </a>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link href="/contact" className={ctaButtonClass}>
-                Contact Us
-              </Link>
+              <a
+                href={BOOK_NEW_PATIENT_URL}
+                target="_blank"
+                rel="noreferrer"
+                className={newPatientButtonClass}
+              >
+                <span className="hidden sm:inline">New Patient Appt</span>
+                <span className="sm:hidden">New Appt</span>
+              </a>
             </motion.div>
           </div>
         </div>

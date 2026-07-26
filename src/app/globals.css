@@ -44,6 +44,16 @@ body {
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
 }
 
+/* Cleaner line breaks on display headlines — avoids orphaned words. Modern browsers only; older ones ignore. */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Prevent overly wide, hard-to-scan paragraphs from having orphaned last lines. */
+p {
+  text-wrap: pretty;
+}
+
 @layer utilities {
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {

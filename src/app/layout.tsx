@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { MotionProvider } from "@/components/MotionProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -71,10 +72,12 @@ export default function RootLayout({
       <body
         className="font-sans antialiased no-scrollbar bg-[#EAE5D9]"
       >
-        <ScrollProgress />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <MotionProvider>
+          <ScrollProgress />
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

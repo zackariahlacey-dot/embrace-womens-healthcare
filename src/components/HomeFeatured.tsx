@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, UserPlus, HeartHandshake } from "lucide-react";
+import { ArrowRight, Calendar, UserPlus, HeartHandshake, LogIn } from "lucide-react";
 
 import { clinicalFocusAreas } from "@/lib/clinical-focus";
+import { PATIENT_PORTAL_URL } from "@/lib/constants";
 
 export function HomeFeatured() {
   return (
@@ -150,7 +151,7 @@ export function HomeFeatured() {
         </div>
       </section>
 
-      {/* Sliding scale callout */}
+      {/* Fee Schedule callout */}
       <section className="bg-[#FAF8F5] px-4 pt-20 pb-16 sm:px-6 sm:pt-24 lg:px-8 lg:pb-24 border-t border-[#4A4335]/10">
         <div className="mx-auto max-w-5xl">
           <motion.div
@@ -165,17 +166,17 @@ export function HomeFeatured() {
             </div>
             <div className="flex-1 text-center md:text-left">
               <h2 className="font-serif italic text-2xl sm:text-3xl text-[#4A4335] mb-2">
-                Care that respects your budget
+                Transparent, upfront pricing
               </h2>
               <p className="text-sm sm:text-base text-[#5A5346] leading-relaxed font-sans">
-                Our sliding scale model ensures you receive thoughtful, dedicated, and highly personalized care that respects your financial realities.
+                We are upfront about patient out-of-pocket costs. What you see on our fee schedule is what you pay — no hidden fees, no surprise billing.
               </p>
             </div>
             <Link
-              href="/sliding-scale"
+              href="/fee-schedule"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-[#4A4335] text-[#FAF8F5] px-6 py-3 text-xs font-semibold tracking-wide shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow whitespace-nowrap"
             >
-              Learn more
+              View fee schedule
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </motion.div>
@@ -195,23 +196,29 @@ export function HomeFeatured() {
             Ready to feel like you again?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide mb-8">
-            Reach out to coordinate care, ask a question, or register for our wellness gatherings. We&apos;re accepting new patients starting September 1, 2026.
+            New here? Start with a new-patient appointment. Already a patient? Log into the portal to schedule.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
-              href="/contact"
+              href="/new-patients"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#4A4335] text-[#FAF8F5] px-8 py-3.5 text-sm font-semibold tracking-wide shadow-md transition-all duration-300 hover:bg-[#5A5346] hover:-translate-y-0.5"
             >
-              Contact Us
-              <ArrowRight className="w-4 h-4" />
+              <UserPlus className="w-4 h-4" />
+              New Patient
             </Link>
             <a
-              href="tel:8027359779"
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-[#4A4335] text-[#4A4335] px-8 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5"
+              href={PATIENT_PORTAL_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#4A4335] text-[#4A4335] px-8 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#4A4335]/5"
             >
-              Call 802-735-9779
+              <LogIn className="w-4 h-4" />
+              Already a patient? Portal
             </a>
           </div>
+          <p className="mt-5 text-xs text-[#5A5346]/80 font-sans">
+            Prefer to talk to someone? Call <a href="tel:8027359779" className="underline hover:text-[#4A4335]">802-735-9779</a>.
+          </p>
         </motion.div>
       </section>
     </>
