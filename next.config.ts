@@ -13,15 +13,21 @@ import path from "path";
  */
 const cspDirectives = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jotfor.ms",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' data: https://fonts.gstatic.com",
-  "img-src 'self' data: blob: https://images.unsplash.com",
-  "frame-src 'self' https://hipaa.jotform.com https://www.jotform.com",
-  "connect-src 'self' https://hipaa.jotform.com https://www.jotform.com https://cdn.jotfor.ms",
+  // Scripts: self + JotForm CDNs + Google reCAPTCHA (JotForm uses it for spam protection)
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.jotform.com https://*.jotfor.ms https://www.google.com https://www.gstatic.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.jotform.com https://*.jotfor.ms",
+  "font-src 'self' data: https://fonts.gstatic.com https://*.jotform.com https://*.jotfor.ms",
+  // Images: allow-listed hosts + JotForm-hosted user uploads + data URIs for inline SVG
+  "img-src 'self' data: blob: https://images.unsplash.com https://*.jotform.com https://*.jotfor.ms https://www.google.com https://www.gstatic.com",
+  // Frames: JotForm form iframe + nested reCAPTCHA iframe + JotForm success/redirect pages on any subdomain
+  "frame-src 'self' https://*.jotform.com https://*.jotfor.ms https://www.google.com https://recaptcha.google.com",
+  // XHR/fetch: JotForm submission + reCAPTCHA verification
+  "connect-src 'self' https://*.jotform.com https://*.jotfor.ms https://www.google.com https://www.gstatic.com",
+  // Media (in case JotForm embeds any audio/video widgets)
+  "media-src 'self' https://*.jotform.com https://*.jotfor.ms",
   "frame-ancestors 'none'",
   "base-uri 'self'",
-  "form-action 'self'",
+  "form-action 'self' https://*.jotform.com https://*.jotfor.ms",
   "object-src 'none'",
   "upgrade-insecure-requests",
 ].join("; ");
