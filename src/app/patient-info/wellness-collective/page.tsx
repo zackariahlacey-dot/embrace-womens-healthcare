@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin, Newspaper, Users, Mail } from "lucide-react";
+import { ArrowUpRight, MapPin, Newspaper, Users, Mail, QrCode } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "The Wellness Collective",
@@ -69,7 +70,7 @@ export default function WellnessCollectivePage() {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#4A4335]/10 bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-[#4A4335]/10 bg-white p-6 shadow-sm flex flex-col">
             <div className="flex items-center gap-3 mb-3">
               <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#EAE5D9] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58]">
                 <Users className="w-5 h-5" />
@@ -81,6 +82,28 @@ export default function WellnessCollectivePage() {
             <p className="text-sm text-[#5A5346] leading-relaxed">
               Bethany hosts monthly meet-and-greets at The Wellness Collective — come by, ask questions, and get to know her practice in person.
             </p>
+
+            {/* Scheduling QR */}
+            <div className="mt-5 pt-5 border-t border-[#4A4335]/10 flex items-center gap-4">
+              <div className="relative w-24 h-24 shrink-0 rounded-xl border border-[#4A4335]/10 bg-white p-1.5 shadow-inner">
+                <Image
+                  src="/qr.png"
+                  alt="QR code — scan with your phone camera to sign up for a class or meet-and-greet"
+                  fill
+                  sizes="96px"
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex-1">
+                <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#8C6C58]">
+                  <QrCode className="w-3 h-3" aria-hidden />
+                  Sign Up
+                </div>
+                <p className="mt-1 text-xs text-[#5A5346] leading-relaxed">
+                  Scan with your phone to reserve a spot at an upcoming class or gathering.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 

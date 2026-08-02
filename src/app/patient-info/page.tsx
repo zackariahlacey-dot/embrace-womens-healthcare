@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, QrCode } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Patient Info",
@@ -50,6 +51,34 @@ export default function PatientInfoPage() {
           <p className="mt-3 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide max-w-2xl mx-auto">
             Helpful information and resources for new and current patients.
           </p>
+        </div>
+
+        {/* Class scheduling QR — scan to sign up for classes and gatherings */}
+        <div className="mb-8 rounded-3xl border border-[#4A4335]/10 bg-white p-6 md:p-8 shadow-sm">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 shrink-0 rounded-2xl border border-[#4A4335]/10 bg-white p-2 shadow-inner">
+              <Image
+                src="/qr.png"
+                alt="QR code — scan with your phone camera to schedule a class"
+                fill
+                sizes="192px"
+                className="object-contain p-1"
+                priority
+              />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#EAE5D9] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#8C6C58]">
+                <QrCode className="w-3.5 h-3.5" aria-hidden />
+                Class Scheduling
+              </div>
+              <h2 className="mt-3 font-serif italic text-2xl sm:text-3xl text-[#4A4335]">
+                Sign up for a class
+              </h2>
+              <p className="mt-2 text-sm sm:text-base text-[#5A5346] leading-relaxed">
+                Point your phone camera at the QR code to schedule a spot at one of Bethany&apos;s monthly classes, gatherings, or meet-and-greets at The Wellness Collective.
+              </p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
