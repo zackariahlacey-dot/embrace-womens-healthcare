@@ -51,7 +51,7 @@ export default function NewslettersPage() {
             </p>
 
             <p>
-              Flexible options designed around you. Sliding-scale pricing. (Accepting insurance in the fall.) We combine the latest in evidence-based medicine with innovative therapies to support menopause care in a comprehensive, personalized way. Our goal is to help you feel your best with solutions that align with your lifestyle and priorities. Because every woman&apos;s journey is unique, your care plan should be too. Together, we&apos;ll create a personalized roadmap to support your vitality, confidence, and well-being for the years ahead. With trusted expertise and ongoing support, we&apos;ll be here every step of the way — offering guidance, thoughtful adjustments, and compassionate care to help you thrive through this transformative season of life.
+              Flexible options designed around you. (Will be accepting insurance in 2027.) We combine the latest in evidence-based medicine with innovative therapies to support menopause care in a comprehensive, personalized way. Our goal is to help you feel your best with solutions that align with your lifestyle and priorities. Because every woman&apos;s journey is unique, your care plan should be too. Together, we&apos;ll create a personalized roadmap to support your vitality, confidence, and well-being for the years ahead. With trusted expertise and ongoing support, we&apos;ll be here every step of the way — offering guidance, thoughtful adjustments, and compassionate care to help you thrive through this transformative season of life.
             </p>
 
             <p>

@@ -82,7 +82,7 @@ export default function FeeSchedule() {
         >
           <ShieldCheck className="w-5 h-5 shrink-0 text-[#8C6C58]" aria-hidden />
           <p className="text-xs sm:text-sm text-[#4A4335] leading-relaxed">
-            All services are self-pay. We provide itemized receipts you can submit to your insurance for out-of-network reimbursement.
+            All services are currently self-pay — we will be accepting insurance in 2027. In the meantime, we provide itemized receipts you can submit to your insurance for out-of-network reimbursement.
           </p>
         </motion.div>
 
