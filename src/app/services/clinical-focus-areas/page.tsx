@@ -13,21 +13,21 @@ export const metadata: Metadata = {
 
 export default function ClinicalFocusAreasPage() {
   return (
-    <section className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 border-t border-[#4A4335]/5">
+    <section className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 border-t border-[#1F2E4C]/5">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12">
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8C6C58] hover:text-[#4A4335] transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#3AA5A0] hover:text-[#1F2E4C] transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Services
           </Link>
           <div className="text-center">
-            <h1 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#4A4335]">
+            <h1 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#1F2E4C]">
               Clinical Focus Areas
             </h1>
-            <p className="mt-3 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide">
+            <p className="mt-3 text-sm sm:text-base text-[#3D4A66] font-sans tracking-wide">
               In-depth clinical details on the focus areas we treat most often
             </p>
           </div>
@@ -55,23 +55,23 @@ export default function ClinicalFocusAreasPage() {
               </div>
 
               <div className={`md:col-span-7 ${idx % 2 === 1 ? "md:order-1" : ""}`}>
-                <h2 className="font-serif italic text-2xl sm:text-3xl md:text-4xl text-[#4A4335] mb-3">
+                <h2 className="font-serif italic text-2xl sm:text-3xl md:text-4xl text-[#1F2E4C] mb-3">
                   {area.title}
                 </h2>
-                <p className="text-xs font-semibold uppercase tracking-wider text-[#8C6C58] mb-4">
+                <p className="text-xs font-semibold uppercase tracking-wider text-[#3AA5A0] mb-4">
                   {area.headline}
                 </p>
-                <p className="text-sm sm:text-base text-[#5A5346] leading-relaxed font-sans mb-6">
+                <p className="text-sm sm:text-base text-[#3D4A66] leading-relaxed font-sans mb-6">
                   {area.solution}
                 </p>
 
-                <dl className="space-y-5 border-t border-[#4A4335]/10 pt-6">
+                <dl className="space-y-5 border-t border-[#1F2E4C]/10 pt-6">
                   {area.details.map(({ label, text }) => (
                     <div key={label} className="space-y-1">
-                      <dt className="text-xs font-semibold uppercase tracking-wider text-[#4A4335]">
+                      <dt className="text-xs font-semibold uppercase tracking-wider text-[#1F2E4C]">
                         {label}
                       </dt>
-                      <dd className="text-sm sm:text-base text-[#5A5346] leading-relaxed font-sans">
+                      <dd className="text-sm sm:text-base text-[#3D4A66] leading-relaxed font-sans">
                         {text}
                       </dd>
                     </div>
@@ -82,13 +82,13 @@ export default function ClinicalFocusAreasPage() {
           ))}
         </div>
 
-        <div className="mt-20 border-t border-[#4A4335]/10 pt-12 text-center">
-          <p className="text-sm sm:text-base text-[#5A5346] mb-6 font-sans leading-relaxed">
+        <div className="mt-20 border-t border-[#1F2E4C]/10 pt-12 text-center">
+          <p className="text-sm sm:text-base text-[#3D4A66] mb-6 font-sans leading-relaxed">
             Have questions about whether one of these focus areas is right for you?
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-[#4A4335] text-[#FAF8F5] px-8 py-3 text-xs font-semibold tracking-wide shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow"
+            className="inline-flex items-center gap-2 rounded-full bg-[#1F2E4C] text-[#FAF8F5] px-8 py-3 text-xs font-semibold tracking-wide shadow-sm transition-all duration-300 hover:bg-[#3D4A66] hover:shadow"
           >
             Get in Touch
             <ArrowRight className="w-3.5 h-3.5" />

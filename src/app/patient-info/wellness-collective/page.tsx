@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MapPin, Newspaper, Users, Mail, QrCode } from "lucide-react";
+import { ArrowUpRight, MapPin, Newspaper, Users, Mail } from "lucide-react";
+import { CLASS_SIGNUP_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "The Wellness Collective",
@@ -12,16 +12,16 @@ const WELLNESS_COLLECTIVE_URL =
 
 export default function WellnessCollectivePage() {
   return (
-    <section className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 border-t border-[#4A4335]/5">
+    <section className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 border-t border-[#1F2E4C]/5">
       <div className="mx-auto max-w-4xl">
         <div className="text-center mb-12">
-          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#8C6C58] mb-3">
+          <p className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-[#3AA5A0] mb-3">
             Our Partner Space
           </p>
-          <h1 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#4A4335] mb-4">
+          <h1 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#1F2E4C] mb-4">
             The Wellness Collective
           </h1>
-          <p className="mt-3 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide max-w-2xl mx-auto">
+          <p className="mt-3 text-sm sm:text-base text-[#3D4A66] font-sans tracking-wide max-w-2xl mx-auto">
             Bethany partners with The Wellness Collective in Colchester, VT for in-person gatherings, monthly meet-and-greets, and community wellness education.
           </p>
         </div>
@@ -31,23 +31,23 @@ export default function WellnessCollectivePage() {
           href={WELLNESS_COLLECTIVE_URL}
           target="_blank"
           rel="noreferrer"
-          className="group block mb-12 rounded-3xl border border-[#4A4335]/10 bg-white p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+          className="group block mb-12 rounded-3xl border border-[#1F2E4C]/10 bg-white p-6 md:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
         >
           <div className="flex items-start gap-4">
-            <div className="flex shrink-0 w-12 h-12 rounded-full bg-[#EAE5D9] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58]">
+            <div className="flex shrink-0 w-12 h-12 rounded-full bg-[#EAE5D9] border border-[#1F2E4C]/10 items-center justify-center text-[#3AA5A0]">
               <ArrowUpRight className="w-6 h-6" />
             </div>
             <div className="flex-1">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-[#8C6C58]">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-[#3AA5A0]">
                 Featured Provider
               </p>
-              <h2 className="font-serif italic text-xl md:text-2xl text-[#4A4335] font-semibold mt-1">
+              <h2 className="font-serif italic text-xl md:text-2xl text-[#1F2E4C] font-semibold mt-1">
                 Bethany Cook, WHNP-BC, CNM — on The Wellness Collective
               </h2>
-              <p className="text-sm text-[#5A5346] leading-relaxed mt-2">
+              <p className="text-sm text-[#3D4A66] leading-relaxed mt-2">
                 View Bethany&apos;s provider page on The Wellness Collective site.
               </p>
-              <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-[#4A4335] group-hover:text-[#8C6C58] transition-colors">
+              <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-[#1F2E4C] group-hover:text-[#3AA5A0] transition-colors">
                 wellnesscollectivevt.com/bethany-cook →
               </p>
             </div>
@@ -56,71 +56,60 @@ export default function WellnessCollectivePage() {
 
         {/* Announcements grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12">
-          <div className="rounded-2xl border border-[#4A4335]/10 bg-white p-6 shadow-sm">
+          <div className="rounded-2xl border border-[#1F2E4C]/10 bg-white p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-3">
-              <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#EAE5D9] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58]">
+              <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#EAE5D9] border border-[#1F2E4C]/10 items-center justify-center text-[#3AA5A0]">
                 <Newspaper className="w-5 h-5" />
               </div>
-              <h3 className="font-serif italic text-lg md:text-xl text-[#4A4335] font-semibold">
+              <h3 className="font-serif italic text-lg md:text-xl text-[#1F2E4C] font-semibold">
                 Monthly Newsletters
               </h3>
             </div>
-            <p className="text-sm text-[#5A5346] leading-relaxed">
+            <p className="text-sm text-[#3D4A66] leading-relaxed">
               Bethany posts a monthly wellness newsletter — practical, evidence-based reading on midlife, hormones, and women&apos;s health.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-[#4A4335]/10 bg-white p-6 shadow-sm flex flex-col">
+          <div className="rounded-2xl border border-[#1F2E4C]/10 bg-white p-6 shadow-sm flex flex-col">
             <div className="flex items-center gap-3 mb-3">
-              <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#EAE5D9] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58]">
+              <div className="flex shrink-0 w-10 h-10 rounded-full bg-[#EAE5D9] border border-[#1F2E4C]/10 items-center justify-center text-[#3AA5A0]">
                 <Users className="w-5 h-5" />
               </div>
-              <h3 className="font-serif italic text-lg md:text-xl text-[#4A4335] font-semibold">
+              <h3 className="font-serif italic text-lg md:text-xl text-[#1F2E4C] font-semibold">
                 Monthly Meet-and-Greets
               </h3>
             </div>
-            <p className="text-sm text-[#5A5346] leading-relaxed">
-              Bethany hosts monthly meet-and-greets at The Wellness Collective — come by, ask questions, and get to know her practice in person.
+            <p className="text-sm text-[#3D4A66] leading-relaxed">
+              Bethany hosts monthly meet-and-greets at The Wellness Collective — come by, ask questions, and get to know her practice in person. Classes are held once a month on Saturdays.
             </p>
 
-            {/* Scheduling QR */}
-            <div className="mt-5 pt-5 border-t border-[#4A4335]/10 flex items-center gap-4">
-              <div className="relative w-24 h-24 shrink-0 rounded-xl border border-[#4A4335]/10 bg-white p-1.5 shadow-inner">
-                <Image
-                  src="/qr.png"
-                  alt="QR code — scan with your phone camera to sign up for a class or meet-and-greet"
-                  fill
-                  sizes="96px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex-1">
-                <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#8C6C58]">
-                  <QrCode className="w-3 h-3" aria-hidden />
-                  Sign Up
-                </div>
-                <p className="mt-1 text-xs text-[#5A5346] leading-relaxed">
-                  Scan with your phone to reserve a spot at an upcoming class or gathering.
-                </p>
-              </div>
-            </div>
+            {/* Class signup link */}
+            <a
+              href={CLASS_SIGNUP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group mt-5 pt-5 border-t border-[#1F2E4C]/10 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#1F2E4C] hover:text-[#3AA5A0] transition-colors"
+            >
+              Sign up for a class
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+            </a>
           </div>
         </div>
 
         {/* Address */}
-        <div className="rounded-3xl border border-[#4A4335]/10 bg-[#EAE5D9]/40 p-6 md:p-8 shadow-sm">
+        <div className="rounded-3xl border border-[#1F2E4C]/10 bg-[#EAE5D9]/40 p-6 md:p-8 shadow-sm">
           <div className="flex items-start gap-4">
-            <div className="flex shrink-0 w-12 h-12 rounded-full bg-[#FAF8F5] border border-[#4A4335]/10 items-center justify-center text-[#8C6C58]">
+            <div className="flex shrink-0 w-12 h-12 rounded-full bg-[#FAF8F5] border border-[#1F2E4C]/10 items-center justify-center text-[#3AA5A0]">
               <MapPin className="w-6 h-6" />
             </div>
             <div className="flex-1">
-              <p className="text-xs font-semibold text-[#8C6C58] uppercase tracking-wider">
+              <p className="text-xs font-semibold text-[#3AA5A0] uppercase tracking-wider">
                 Location
               </p>
-              <h3 className="font-serif italic text-lg md:text-xl text-[#4A4335] font-semibold mt-1 mb-2">
+              <h3 className="font-serif italic text-lg md:text-xl text-[#1F2E4C] font-semibold mt-1 mb-2">
                 The Wellness Collective
               </h3>
-              <p className="text-sm text-[#5A5346] leading-relaxed">
+              <p className="text-sm text-[#3D4A66] leading-relaxed">
                 875 Roosevelt Highway, Suite 120
                 <br />
                 Colchester, VT 05446
@@ -130,14 +119,14 @@ export default function WellnessCollectivePage() {
                   href="https://www.google.com/maps/search/?api=1&query=875+Roosevelt+Highway+Suite+120+Colchester+VT+05446"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-full bg-[#4A4335] text-[#FAF8F5] px-4 py-2 text-xs font-semibold uppercase tracking-wider shadow-sm transition-all duration-300 hover:bg-[#5A5346]"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#1F2E4C] text-[#FAF8F5] px-4 py-2 text-xs font-semibold uppercase tracking-wider shadow-sm transition-all duration-300 hover:bg-[#3D4A66]"
                 >
                   <MapPin className="w-3.5 h-3.5" aria-hidden />
                   Directions
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#4A4335] hover:text-[#8C6C58] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#1F2E4C] hover:text-[#3AA5A0] transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5" aria-hidden />
                   Get in touch

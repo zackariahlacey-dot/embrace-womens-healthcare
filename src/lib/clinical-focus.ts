@@ -18,7 +18,7 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
   {
     slug: "hormone-therapy",
     title: "Hormone Therapy & Wellness",
-    image: "/2.jpg",
+    image: "/womens-hormone-therapy-community-support-vermont.jpg",
     headline: "Feeling unlike yourself? Fatigue, mood swings, or night sweats?",
     solution:
       "We provide personalized Hormone Replacement Therapy (HRT) and wellness planning for perimenopause and menopause—helping you regain your energy and sense of balance.",
@@ -40,7 +40,7 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
   {
     slug: "vaginal-health",
     title: "Vaginal Health & Sexual Wellness",
-    image: "/slidingscale.avif",
+    image: "/womens-healthcare-vermont-transparent-pricing.avif",
     headline: "Struggling with discomfort, dryness, or intimacy concerns?",
     solution:
       "Compassionate, judgment-free care for your most private health needs. We help you feel comfortable, confident, and empowered in your own body again.",
@@ -62,7 +62,7 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
   {
     slug: "nutritional-support",
     title: "Nutritional Support & Counseling",
-    image: "/4.jpeg",
+    image: "/womens-nutrition-counseling-vermont.jpg",
     headline: "Drained by stubborn weight or hormonal energy crashes?",
     solution:
       "Evidence-based nutritional guidance tailored to your unique biology. Fuel your body to optimize your hormones and vitality at any age.",
@@ -84,7 +84,7 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
   {
     slug: "acute-visits",
     title: "Acute UTI or Vaginal Infections",
-    image: "/1.jpg",
+    image: "/womens-wellness-outdoor-yoga-vermont.jpg",
     headline: "Need a quick telehealth appointment?",
     solution:
       "Contraception new start and refill. Need a quick telehealth appointment so you can move on with your day? Travel nursing? In Vermont from out of town?",
@@ -106,7 +106,7 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
   {
     slug: "pmos",
     title: "PMOS (formerly PCOS)",
-    image: "/newphoto.jpg",
+    image: "/pmos-pcos-womens-health-vermont.jpg",
     headline: "Polyendocrine Metabolic Ovarian Syndrome",
     solution:
       "PMOS is a complex, systemic hormonal disorder that affects approximately 1 in 8 women globally. The name change from PCOS to PMOS reflects a more accurate understanding of the condition — it affects multiple hormone systems and metabolic processes, not just the ovaries.",
@@ -132,7 +132,7 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
   {
     slug: "endometriosis",
     title: "Endometriosis",
-    image: "/purple.png",
+    image: "/endometriosis-womens-health-vermont.png",
     headline: "Chronic, inflammatory tissue growth outside the uterus",
     solution:
       "Endometriosis is a chronic, inflammatory condition where tissue similar to the lining of the uterus grows outside of it — typically on pelvic organs like the ovaries and fallopian tubes — causing pain, inflammation, and scar tissue.",

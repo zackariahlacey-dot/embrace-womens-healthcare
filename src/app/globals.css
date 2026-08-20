@@ -7,16 +7,16 @@ html {
 /* Healthcare brochure theme colors */
 :root {
   --background: #EAE5D9;
-  --foreground: #4A4335;
+  --foreground: #1F2E4C;
   --healthcare-pink: #EAE5D9;
-  --healthcare-primary: #4A4335;
-  --healthcare-charcoal: #4A4335;
+  --healthcare-primary: #1F2E4C;
+  --healthcare-charcoal: #1F2E4C;
   --healthcare-cream: #F5F2EB;
   --healthcare-cream-soft: #FAF8F5;
 
-  --brochure-dark: #4A4335;
-  --brochure-body: #5A5346;
-  --brochure-accent: #8C6C58;
+  --brochure-dark: #1F2E4C;
+  --brochure-body: #3D4A66;
+  --brochure-accent: #3AA5A0;
   --brochure-light: #F5F2EB;
 }
 
@@ -24,14 +24,14 @@ html {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-healthcare-pink: #EAE5D9;
-  --color-healthcare-primary: #4A4335;
-  --color-healthcare-charcoal: #4A4335;
+  --color-healthcare-primary: #1F2E4C;
+  --color-healthcare-charcoal: #1F2E4C;
   --color-healthcare-cream: #F5F2EB;
   --color-healthcare-cream-soft: #FAF8F5;
 
-  --color-brochure-dark: #4A4335;
-  --color-brochure-body: #5A5346;
-  --color-brochure-accent: #8C6C58;
+  --color-brochure-dark: #1F2E4C;
+  --color-brochure-body: #3D4A66;
+  --color-brochure-accent: #3AA5A0;
   --color-brochure-light: #F5F2EB;
 
   --font-serif: "Cormorant Garamond", Georgia, serif;

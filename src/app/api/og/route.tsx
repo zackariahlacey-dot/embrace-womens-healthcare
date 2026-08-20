@@ -15,8 +15,8 @@ export async function GET() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(180deg, #FFFFFF 0%, #FFF5F7 100%)",
-          border: "8px solid #D81B60",
+          background: "linear-gradient(180deg, #FFFFFF 0%, #F4F7FB 100%)",
+          border: "8px solid #1F2E4C",
           position: "relative",
         }}
       >
@@ -44,7 +44,7 @@ export async function GET() {
             style={{
               fontSize: 56,
               fontWeight: 700,
-              color: "#D81B60",
+              color: "#1F2E4C",
               letterSpacing: "-0.02em",
               textAlign: "center",
               lineHeight: 1.2,

@@ -10,38 +10,38 @@ export const metadata: Metadata = {
 
 export default function NewslettersPage() {
   return (
-    <section className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 border-t border-[#4A4335]/5">
+    <section className="bg-[#FAF8F5] px-4 pt-32 pb-20 sm:px-6 sm:pt-36 lg:px-8 lg:pb-28 border-t border-[#1F2E4C]/5">
       <div className="mx-auto max-w-3xl">
         <div className="mb-10">
           <Link
             href="/patient-info"
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#8C6C58] hover:text-[#4A4335] transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#3AA5A0] hover:text-[#1F2E4C] transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Patient Info
           </Link>
           <div className="text-center">
-            <h1 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#4A4335]">
+            <h1 className="font-serif italic text-3xl sm:text-4xl md:text-5xl text-[#1F2E4C]">
               Newsletters
             </h1>
-            <p className="mt-3 text-sm sm:text-base text-[#5A5346] font-sans tracking-wide">
+            <p className="mt-3 text-sm sm:text-base text-[#3D4A66] font-sans tracking-wide">
               Letters from Bethany on midlife, hormones, and the path forward
             </p>
           </div>
         </div>
 
-        <article className="bg-white border border-[#4A4335]/10 rounded-3xl shadow-sm p-6 sm:p-10 md:p-12">
+        <article className="bg-white border border-[#1F2E4C]/10 rounded-3xl shadow-sm p-6 sm:p-10 md:p-12">
           {/* Issue header */}
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#8C6C58] mb-4">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#3AA5A0] mb-4">
             <Mail className="w-3.5 h-3.5" />
             Issue No. 1 · A Letter from Bethany
           </div>
 
-          <h2 className="font-serif italic text-2xl sm:text-3xl md:text-4xl text-[#4A4335] mb-8 leading-tight">
+          <h2 className="font-serif italic text-2xl sm:text-3xl md:text-4xl text-[#1F2E4C] mb-8 leading-tight">
             Welcome to Embrace Women&apos;s Healthcare
           </h2>
 
-          <div className="space-y-6 text-sm sm:text-base text-[#5A5346] leading-relaxed font-sans">
+          <div className="space-y-6 text-sm sm:text-base text-[#3D4A66] leading-relaxed font-sans">
             <p>
               Over the past several years, my wife and I have traveled across the United States, learning how people experience healthcare in different communities, all while dreaming of making a home in Vermont. Its strong sense of community, commitment to local farming, and extraordinary natural beauty made it feel like the perfect place. After more than 20 years as healthcare providers — and as patients ourselves at times — we have seen the healthcare system from both sides. That perspective inspired us to create Embrace Women&apos;s Healthcare: a practice designed to offer thoughtful, affordable care and expand access for women in every stage of life.
             </p>
@@ -51,7 +51,7 @@ export default function NewslettersPage() {
             </p>
 
             <p>
-              Flexible options designed around you. (Will be accepting insurance in 2027.) We combine the latest in evidence-based medicine with innovative therapies to support menopause care in a comprehensive, personalized way. Our goal is to help you feel your best with solutions that align with your lifestyle and priorities. Because every woman&apos;s journey is unique, your care plan should be too. Together, we&apos;ll create a personalized roadmap to support your vitality, confidence, and well-being for the years ahead. With trusted expertise and ongoing support, we&apos;ll be here every step of the way — offering guidance, thoughtful adjustments, and compassionate care to help you thrive through this transformative season of life.
+              Affordable cash pay prices. We combine the latest in evidence-based medicine with innovative therapies to support menopause care in a comprehensive, personalized way. Our goal is to help you feel your best with solutions that align with your lifestyle and priorities. Because every woman&apos;s journey is unique, your care plan should be too. Together, we&apos;ll create a personalized roadmap to support your vitality, confidence, and well-being for the years ahead. With trusted expertise and ongoing support, we&apos;ll be here every step of the way — offering guidance, thoughtful adjustments, and compassionate care to help you thrive through this transformative season of life.
             </p>
 
             <p>
@@ -64,22 +64,22 @@ export default function NewslettersPage() {
           </div>
 
           {/* Sign-off */}
-          <div className="mt-10 pt-8 border-t border-[#4A4335]/10">
-            <p className="font-serif italic text-base sm:text-lg text-[#8C6C58] leading-relaxed">
+          <div className="mt-10 pt-8 border-t border-[#1F2E4C]/10">
+            <p className="font-serif italic text-base sm:text-lg text-[#3AA5A0] leading-relaxed">
               Let&apos;s embrace your strength, balance, and renewal.
             </p>
-            <p className="mt-2 text-sm tracking-wide text-[#4A4335] font-sans">
+            <p className="mt-2 text-sm tracking-wide text-[#1F2E4C] font-sans">
               — Bethany
             </p>
           </div>
         </article>
 
         <div className="mt-12 text-center">
-          <p className="text-sm text-[#5A5346] font-sans">
+          <p className="text-sm text-[#3D4A66] font-sans">
             More letters on the way. Have a topic you&apos;d like Bethany to write about?{" "}
             <Link
               href="/contact"
-              className="font-semibold text-[#8C6C58] hover:text-[#4A4335] transition-colors"
+              className="font-semibold text-[#3AA5A0] hover:text-[#1F2E4C] transition-colors"
             >
               Let us know
             </Link>

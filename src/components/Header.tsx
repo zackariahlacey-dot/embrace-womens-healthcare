@@ -6,16 +6,18 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Printer, ChevronDown, Sparkles } from "lucide-react";
-import { BOOK_NEW_PATIENT_URL, PATIENT_PORTAL_URL } from "@/lib/constants";
+import { BOOK_NEW_PATIENT_URL, LAUNCH_DATE, LAUNCH_DATE_SHORT } from "@/lib/constants";
+
+const PORTAL_PENDING_MESSAGE = "Patient Portal launches October 2026";
 
 const newPatientButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-[#4A4335] px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#FAF8F5] shadow-sm transition-all duration-300 hover:bg-[#5A5346] hover:shadow-md border border-[#4A4335]/10 whitespace-nowrap";
+  "inline-flex items-center justify-center rounded-full bg-[#1F2E4C] px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#FAF8F5] shadow-sm transition-all duration-300 hover:bg-[#3D4A66] hover:shadow-md border border-[#1F2E4C]/10 whitespace-nowrap";
 
 const portalButtonClass =
-  "inline-flex items-center justify-center rounded-full bg-[#FAF8F5] border border-[#4A4335]/30 px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A4335] shadow-sm transition-all duration-300 hover:bg-white hover:border-[#4A4335]/50 hover:shadow-md whitespace-nowrap";
+  "inline-flex items-center justify-center rounded-full bg-[#FAF8F5]/60 border border-[#1F2E4C]/20 px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#1F2E4C]/50 shadow-sm cursor-not-allowed whitespace-nowrap";
 
 const contactButtonClass =
-  "inline-flex items-center justify-center rounded-full border border-[#4A4335]/25 px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#4A4335] transition-all duration-300 hover:bg-[#4A4335]/5 hover:border-[#4A4335]/50 whitespace-nowrap";
+  "inline-flex items-center justify-center rounded-full border border-[#1F2E4C]/25 px-3.5 py-2.5 text-[11px] sm:text-xs font-semibold text-[#1F2E4C] transition-all duration-300 hover:bg-[#1F2E4C]/5 hover:border-[#1F2E4C]/50 whitespace-nowrap";
 
 const navLinkBase =
   "relative text-xs font-medium uppercase tracking-wider transition-colors cursor-pointer sm:text-sm";
@@ -24,11 +26,11 @@ const mobileLinkBase =
   "relative text-[10px] font-bold uppercase tracking-wider transition-colors";
 
 function navLinkClass(isActive: boolean) {
-  return `${navLinkBase} ${isActive ? "text-[#8C6C58]" : "text-[#4A4335] hover:text-[#8C6C58]"}`;
+  return `${navLinkBase} ${isActive ? "text-[#3AA5A0]" : "text-[#1F2E4C] hover:text-[#3AA5A0]"}`;
 }
 
 function mobileLinkClass(isActive: boolean) {
-  return `${mobileLinkBase} ${isActive ? "text-[#8C6C58]" : "text-[#4A4335] hover:text-[#8C6C58]"}`;
+  return `${mobileLinkBase} ${isActive ? "text-[#3AA5A0]" : "text-[#1F2E4C] hover:text-[#3AA5A0]"}`;
 }
 
 function ActiveUnderline({ show }: { show: boolean }) {
@@ -36,7 +38,7 @@ function ActiveUnderline({ show }: { show: boolean }) {
   return (
     <motion.span
       layoutId="active-nav-underline"
-      className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded-full bg-[#8C6C58]"
+      className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded-full bg-[#3AA5A0]"
       transition={{ type: "spring", stiffness: 380, damping: 30 }}
     />
   );
@@ -60,7 +62,7 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100]">
       {/* Slim top utility bar — phone/fax + announcement */}
-      <div className="bg-[#4A4335] text-[#FAF8F5] border-b border-[#EAE5D9]/10">
+      <div className="bg-[#1F2E4C] text-[#FAF8F5] border-b border-[#EAE5D9]/10">
         <div className="mx-auto max-w-7xl px-4 py-1.5 sm:px-6 sm:py-2 md:px-8 flex items-center justify-between gap-3">
           {/* Phone/Fax — left */}
           <div className="flex items-center gap-3 sm:gap-5 text-[10px] sm:text-xs">
@@ -79,19 +81,19 @@ export function Header() {
           </div>
 
           {/* Announcement — right */}
-          <span className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-[#FAF8F5] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#4A4335] shadow-sm ring-1 ring-[#8C6C58]/25">
-            <Sparkles className="w-3.5 h-3.5 text-[#8C6C58]" aria-hidden />
-            Now Welcoming New Patients — September 1, 2026
+          <span className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-[#FAF8F5] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em] text-[#1F2E4C] shadow-sm ring-1 ring-[#3AA5A0]/25">
+            <Sparkles className="w-3.5 h-3.5 text-[#3AA5A0]" aria-hidden />
+            Now Welcoming New Patients — {LAUNCH_DATE}
           </span>
-          <span className="md:hidden inline-flex items-center gap-1 rounded-full bg-[#FAF8F5] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.1em] text-[#4A4335] shadow-sm ring-1 ring-[#8C6C58]/25">
-            <Sparkles className="w-3 h-3 text-[#8C6C58]" aria-hidden />
-            New Patients · Sept 1, 2026
+          <span className="md:hidden inline-flex items-center gap-1 rounded-full bg-[#FAF8F5] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.1em] text-[#1F2E4C] shadow-sm ring-1 ring-[#3AA5A0]/25">
+            <Sparkles className="w-3 h-3 text-[#3AA5A0]" aria-hidden />
+            New Patients · {LAUNCH_DATE_SHORT}
           </span>
         </div>
       </div>
 
       {/* Main navigation bar */}
-      <div className="border-b border-[#4A4335]/10 bg-[#EAE5D9]/80 backdrop-blur-md shadow-sm">
+      <div className="border-b border-[#1F2E4C]/10 bg-[#EAE5D9]/80 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-2 px-4 py-3 sm:gap-4 sm:px-6 md:px-8">
           <Link
             href="/"
@@ -99,12 +101,12 @@ export function Header() {
             aria-label="Embrace Women's Healthcare home"
           >
             <Image
-              src="/embracelogo.png"
+              src="/embrace-womens-healthcare-vermont-logo.png"
               alt="Embrace Women's Healthcare"
               width={180}
               height={56}
               priority
-              className="h-9 w-auto sm:h-12 brightness-95 contrast-105"
+              className="h-10 w-auto sm:h-14"
             />
           </Link>
 
@@ -148,12 +150,12 @@ export function Header() {
               </Link>
               {isPatientInfoOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-[240px]">
-                  <div className="bg-white border border-[#4A4335]/10 rounded-xl shadow-lg overflow-hidden py-1">
+                  <div className="bg-white border border-[#1F2E4C]/10 rounded-xl shadow-lg overflow-hidden py-1">
                     {patientInfoLinks.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="block px-4 py-2.5 text-sm text-[#4A4335] hover:bg-[#FAF8F5] hover:text-[#8C6C58] transition-colors font-sans"
+                        className="block px-4 py-2.5 text-sm text-[#1F2E4C] hover:bg-[#FAF8F5] hover:text-[#3AA5A0] transition-colors font-sans"
                       >
                         {item.label}
                       </Link>
@@ -179,28 +181,22 @@ export function Header() {
               </Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <a
-                href={PATIENT_PORTAL_URL}
-                target="_blank"
-                rel="noreferrer"
-                className={portalButtonClass}
-              >
-                <span className="hidden sm:inline">Patient Portal</span>
-                <span className="sm:hidden">Portal</span>
-              </a>
-            </motion.div>
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              title={PORTAL_PENDING_MESSAGE}
+              className={portalButtonClass}
+            >
+              <span className="hidden sm:inline">Patient Portal</span>
+              <span className="sm:hidden">Portal</span>
+            </button>
 
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <a
-                href={BOOK_NEW_PATIENT_URL}
-                target="_blank"
-                rel="noreferrer"
-                className={newPatientButtonClass}
-              >
+              <Link href={BOOK_NEW_PATIENT_URL} className={newPatientButtonClass}>
                 <span className="hidden sm:inline">New Patient Appt</span>
                 <span className="sm:hidden">New Appt</span>
-              </a>
+              </Link>
             </motion.div>
           </div>
         </div>

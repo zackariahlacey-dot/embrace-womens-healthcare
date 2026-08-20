@@ -9,10 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        healthcare: {
-          pink: "#fdf2f8",
-          primary: "#D81B60",
-          charcoal: "#2d2d2d",
+        embrace: {
+          navy: "#1F2E4C",
+          slate: "#3D4A66",
+          teal: "#3AA5A0",
+          lavender: "#B5A3D8",
+          cream: "#EAE5D9",
+          "cream-light": "#FAF8F5",
         },
       },
     },

@@ -9,7 +9,7 @@ export default function VideosPage() {
   return (
     <ComingSoon
       title="Videos"
-      description="Short educational videos from Bethany are coming in July — bite-sized walkthroughs on the topics we cover most in clinic."
+      description="Short educational videos from Bethany are coming soon — bite-sized walkthroughs on the topics we cover most in clinic."
     />
   );
 }

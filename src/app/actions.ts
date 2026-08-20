@@ -40,7 +40,7 @@ function adminEmailHtml(firstName: string, email: string, message: string): stri
 
 function confirmationEmailHtml(firstName: string): string {
   const safeName = escapeHtml(firstName);
-  const logoUrl = "https://www.embracewomenshealthcare.com/embracelogo.png";
+  const logoUrl = "https://www.embracewomenshealthcare.com/embrace-womens-healthcare-vermont-logo.png";
   return `
 <!DOCTYPE html>
 <html>
