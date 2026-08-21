@@ -106,7 +106,7 @@ export function Header() {
               width={180}
               height={56}
               priority
-              className="h-10 w-auto sm:h-14"
+              className="h-8 w-auto sm:h-12"
             />
           </Link>
 
@@ -167,31 +167,34 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* Small screen quick nav */}
-            <nav className="flex md:hidden items-center gap-3 mr-1">
+            {/* Small screen quick nav — hidden below sm to save space */}
+            <nav className="hidden sm:flex md:hidden items-center gap-3 mr-1">
               <Link href="/about" className={mobileLinkClass(isActive("/about"))}>About</Link>
               <Link href="/services" className={mobileLinkClass(isActive("/services"))}>Services</Link>
               <Link href="/patient-info" className={mobileLinkClass(isActive("/patient-info"))}>Info</Link>
             </nav>
 
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            {/* Contact — hidden on smallest screens (reachable via footer/nav) */}
+            <motion.div className="hidden sm:block" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link href="/contact" className={contactButtonClass}>
                 <span className="hidden sm:inline">Contact Us</span>
                 <span className="sm:hidden">Contact</span>
               </Link>
             </motion.div>
 
+            {/* Patient Portal — hidden on smallest screens (button is disabled anyway) */}
             <button
               type="button"
               disabled
               aria-disabled="true"
               title={PORTAL_PENDING_MESSAGE}
-              className={portalButtonClass}
+              className={`hidden sm:inline-flex ${portalButtonClass}`}
             >
               <span className="hidden sm:inline">Patient Portal</span>
               <span className="sm:hidden">Portal</span>
             </button>
 
+            {/* Primary CTA — always visible */}
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link href={BOOK_NEW_PATIENT_URL} className={newPatientButtonClass}>
                 <span className="hidden sm:inline">New Patient Appt</span>

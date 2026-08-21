@@ -36,7 +36,7 @@ export function Hero() {
           </motion.div>
 
           <motion.p
-            className="mt-6 font-serif italic text-base sm:text-lg md:text-xl text-[#3D4A66] tracking-wide"
+            className="mt-6 w-full text-center font-serif italic text-base sm:text-lg md:text-xl text-[#3D4A66] tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
