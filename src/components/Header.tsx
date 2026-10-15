@@ -175,12 +175,17 @@ export function Header() {
             </motion.a>
 
             {/* Primary CTA — always visible */}
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-              <Link href={BOOK_NEW_PATIENT_URL} className={newPatientButtonClass}>
-                <span className="hidden sm:inline">New Patient Appt</span>
-                <span className="sm:hidden">New Appt</span>
-              </Link>
-            </motion.div>
+            <motion.a
+              href={BOOK_NEW_PATIENT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={newPatientButtonClass}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <span className="hidden sm:inline">New Patient Appt</span>
+              <span className="sm:hidden">New Appt</span>
+            </motion.a>
 
             {/* Hamburger — mobile/tablet nav toggle */}
             <button
@@ -260,13 +265,15 @@ export function Header() {
                     <LogIn className="w-3.5 h-3.5" />
                     Patient Portal
                   </a>
-                  <Link
+                  <a
                     href={BOOK_NEW_PATIENT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={closeMobileMenu}
                     className="inline-flex items-center justify-center rounded-full bg-[#1F2E4C] px-4 py-2.5 text-xs font-semibold text-[#FAF8F5] shadow-sm transition-colors hover:bg-[#3D4A66]"
                   >
                     New Patient Appt
-                  </Link>
+                  </a>
                 </div>
               </div>
             </motion.nav>
