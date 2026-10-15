@@ -13,6 +13,13 @@ export const SCHEDULING_OPENS = "October 2026";
 export const BOOK_NEW_PATIENT_URL = "/contact#contact";
 
 /**
+ * Athena Patient Portal — established-patient sign-in / self-scheduling,
+ * specific to Bethany Cook, NP.
+ */
+export const PATIENT_PORTAL_URL =
+  "https://consumer.scheduling.athena.io/?locationId=36255-1&practitionerId=36255-1";
+
+/**
  * Wellness Collective class / meet-and-greet signup — HIPAA JotForm.
  */
 export const CLASS_SIGNUP_URL = "https://form.jotform.com/262266139303151";

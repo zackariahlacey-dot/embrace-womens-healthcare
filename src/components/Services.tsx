@@ -14,17 +14,21 @@ interface BulletService {
 }
 
 const bulletServices: BulletService[] = [
-  { text: "Symptom management for menopause and perimenopause" },
-  { text: "Hormone Replacement Therapy" },
+  { text: "Menopause Hormone Therapy and symptom management" },
   { text: "Family Planning" },
   { text: "Primary Care Coordination" },
   { text: "Sexual Wellness" },
-  { flag: "/lgbtqia-friendly-womens-health-practice.png", flagAlt: "Pride flag — LGBTQIA+ friendly practice" },
-  { text: "Lifestyle education: Stress management, Physical activity, Sexual Wellness, Bone health, Sleep hygiene, Vitamin and Supplements" },
+  { text: "Endometriosis and PMOS treatment" },
+  { text: "Lifestyle education: Stress management, Physical activity, Sleep hygiene, Nutritional support, Vitamin and supplement recommendations" },
   { text: "Cancer Screenings" },
   { text: "Thyroid Management" },
   { text: "Chronic Pelvic Pain" },
   { text: "Treatment of acute infections including UTI and vaginal infections" },
+  {
+    flag: "/lgbtqia-friendly-womens-health-practice.png",
+    flagAlt: "Pride flag — LGBTQIA+ friendly practice",
+    text: "Safe space",
+  },
 ];
 
 export default function Services() {

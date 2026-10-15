@@ -82,7 +82,7 @@ export default function FeeSchedule() {
         >
           <ShieldCheck className="w-5 h-5 shrink-0 text-[#3AA5A0]" aria-hidden />
           <p className="text-xs sm:text-sm text-[#1F2E4C] leading-relaxed">
-            All services are currently self-pay — we will be accepting insurance in 2027. In the meantime, we provide itemized receipts you can submit to your insurance for out-of-network reimbursement.
+            All services are currently self-pay. An itemized superbill is available upon request for patients who wish to ask their commercial insurer about reimbursement; reimbursement is not guaranteed.
           </p>
         </motion.div>
 

@@ -4,8 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, Mail, LogIn, ArrowRight } from "lucide-react";
-
-const PORTAL_PENDING_MESSAGE = "Patient Portal launches October 2026";
+import { PATIENT_PORTAL_URL } from "@/lib/constants";
 
 export default function HowItWorks() {
   return (
@@ -85,7 +84,7 @@ export default function HowItWorks() {
                     Schedule Your Visit
                   </h3>
                   <p className="text-sm text-[#3D4A66] leading-relaxed">
-                    You can schedule an appointment by calling us or filling out our contact form, and a team member will follow up with you. Established patients may also request appointments directly through the patient portal.
+                    You can schedule your appointment directly from our website, by calling us or by filling out our online secure contact form.
                   </p>
                 </div>
               </div>
@@ -117,21 +116,20 @@ export default function HowItWorks() {
                   Get in touch
                 </h4>
                 <p className="text-xs sm:text-sm text-[#3D4A66] leading-relaxed">
-                  New here? Reach out through our contact form and a team member will follow up. The patient portal opens in October 2026 for established-patient scheduling.
+                  New here? Reach out through our contact form and a team member will follow up. Established patients can sign in to the patient portal to schedule directly.
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
-                <button
-                  type="button"
-                  disabled
-                  aria-disabled="true"
-                  title={PORTAL_PENDING_MESSAGE}
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#1F2E4C]/40 text-[#FAF8F5]/80 px-5 py-3 text-xs font-semibold tracking-wide cursor-not-allowed"
+                <a
+                  href={PATIENT_PORTAL_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[#1F2E4C] text-[#FAF8F5] px-5 py-3 text-xs font-semibold tracking-wide transition-all duration-300 hover:bg-[#3D4A66] active:scale-[0.98]"
                 >
                   <LogIn className="w-4 h-4" aria-hidden />
-                  Patient Portal · Coming Oct 2026
-                </button>
+                  Patient Portal
+                </a>
                 <Link
                   href="/contact#contact"
                   className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-[#1F2E4C] text-[#1F2E4C] px-5 py-3 text-xs font-semibold tracking-wide transition-all duration-300 hover:bg-[#1F2E4C]/5 active:scale-[0.98]"

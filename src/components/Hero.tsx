@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, LogIn, UserPlus } from "lucide-react";
-const PORTAL_PENDING_MESSAGE = "Patient Portal launches October 2026";
+import { PATIENT_PORTAL_URL } from "@/lib/constants";
 
 const fadeUp = {
   initial: { opacity: 0, y: 18 },
@@ -139,16 +139,15 @@ export function Hero() {
                 New Patient
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                title={PORTAL_PENDING_MESSAGE}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#1F2E4C]/40 text-[#1F2E4C]/50 px-7 py-3.5 text-sm font-semibold tracking-wide cursor-not-allowed"
+              <a
+                href={PATIENT_PORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#1F2E4C]/40 text-[#1F2E4C] px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#1F2E4C]/5 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <LogIn className="w-4 h-4" />
-                Patient Portal · Coming Oct 2026
-              </button>
+                Patient Portal
+              </a>
             </motion.div>
             <motion.div
               variants={fadeUp}

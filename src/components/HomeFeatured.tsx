@@ -6,8 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, UserPlus, HeartHandshake, LogIn } from "lucide-react";
 
 import { clinicalFocusAreas } from "@/lib/clinical-focus";
-
-const PORTAL_PENDING_MESSAGE = "Patient Portal launches October 2026";
+import { PATIENT_PORTAL_URL } from "@/lib/constants";
 
 export function HomeFeatured() {
   return (
@@ -114,7 +113,7 @@ export function HomeFeatured() {
                   Schedule Your Visit
                 </h3>
                 <p className="text-sm text-[#3D4A66] leading-relaxed font-sans">
-                  Call us or fill out our contact form and a team member will follow up with you. Established patients may request appointments through the patient portal.
+                  You can schedule your appointment directly from our website, by calling us or by filling out our online secure contact form.
                 </p>
               </div>
             </motion.div>
@@ -202,7 +201,7 @@ export function HomeFeatured() {
             Ready to feel like you again?
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#3D4A66] font-sans tracking-wide mb-8">
-            New here? Start with a new-patient appointment. Established patients will be able to log into the portal to schedule once it launches October 2026.
+            New here? Start with a new-patient appointment. Established patients can log into the patient portal to schedule directly.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
@@ -212,16 +211,15 @@ export function HomeFeatured() {
               <UserPlus className="w-4 h-4" />
               New Patient
             </Link>
-            <button
-              type="button"
-              disabled
-              aria-disabled="true"
-              title={PORTAL_PENDING_MESSAGE}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#1F2E4C]/40 text-[#1F2E4C]/50 px-8 py-3.5 text-sm font-semibold tracking-wide cursor-not-allowed"
+            <a
+              href={PATIENT_PORTAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#1F2E4C]/40 text-[#1F2E4C] px-8 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 hover:bg-[#1F2E4C]/5 hover:-translate-y-0.5"
             >
               <LogIn className="w-4 h-4" />
-              Patient Portal · Coming Oct 2026
-            </button>
+              Patient Portal
+            </a>
           </div>
           <p className="mt-5 text-xs text-[#3D4A66]/80 font-sans">
             Prefer to talk to someone? Call <a href="tel:8027359779" className="underline hover:text-[#1F2E4C]">802-735-9779</a>.

@@ -3,9 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const signatureFontClass = "font-normal";
-const signatureFontStyle = { fontFamily: "'Dancing Script', 'Cormorant Garamond', cursive" } as const;
-
 export default function About() {
   return (
     <section
@@ -61,13 +58,7 @@ export default function About() {
           {/* Sign-off */}
           <div className="mt-8">
             <p className="font-serif italic text-base sm:text-lg text-[#3AA5A0] leading-relaxed">
-              Let&apos;s Embrace your strength, balance, and renewal,
-            </p>
-            <p
-              className={`${signatureFontClass} mt-2 text-4xl sm:text-5xl text-[#1F2E4C] leading-none`}
-              style={signatureFontStyle}
-            >
-              Bethany
+              Let&apos;s Embrace your strength, balance, and renewal.
             </p>
           </div>
 

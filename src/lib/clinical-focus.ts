@@ -60,8 +60,8 @@ export const clinicalFocusAreas: ClinicalFocusArea[] = [
     ],
   },
   {
-    slug: "nutritional-support",
-    title: "Nutritional Support & Counseling",
+    slug: "cardiometabolic-support",
+    title: "Cardiometabolic Support",
     image: "/womens-nutrition-counseling-vermont.jpg",
     headline: "Drained by stubborn weight or hormonal energy crashes?",
     solution:
