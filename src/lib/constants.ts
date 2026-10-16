@@ -20,6 +20,14 @@ export const BOOK_NEW_PATIENT_URL =
 export const PATIENT_PORTAL_URL = "https://36255-1.portal.athenahealth.com";
 
 /**
+ * athenaPatient mobile app — same portal account, for patients who prefer
+ * the app over the browser.
+ */
+export const PATIENT_APP_IOS_URL = "https://apps.apple.com/us/app/athenapatient/id1644169294";
+export const PATIENT_APP_ANDROID_URL =
+  "https://play.google.com/store/apps/details?id=com.athenahealth.athenapatient";
+
+/**
  * Wellness Collective class / meet-and-greet signup — HIPAA JotForm.
  */
 export const CLASS_SIGNUP_URL = "https://form.jotform.com/262266139303151";

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LogIn, Phone, Mail } from "lucide-react";
-import { PATIENT_PORTAL_URL } from "@/lib/constants";
+import { LogIn, Phone, Mail, Apple, Smartphone } from "lucide-react";
+import { PATIENT_PORTAL_URL, PATIENT_APP_IOS_URL, PATIENT_APP_ANDROID_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Patient Portal",
@@ -34,6 +34,35 @@ export default function PatientPortalPage() {
           <p className="text-sm text-[#3D4A66] leading-relaxed mt-4">
             If this is your first visit, you&apos;ll receive portal login information after your first appointment is scheduled.
           </p>
+
+          <div className="mt-6 pt-6 border-t border-[#3AA5A0]/20">
+            <p className="text-xs font-semibold uppercase tracking-wider text-[#3AA5A0] mb-3">
+              Prefer the app?
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href={PATIENT_APP_IOS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[#1F2E4C]/20 bg-white px-5 py-2.5 text-xs font-semibold text-[#1F2E4C] shadow-sm transition-colors hover:bg-[#FAF8F5]"
+              >
+                <Apple className="w-4 h-4" />
+                Download on the App Store
+              </a>
+              <a
+                href={PATIENT_APP_ANDROID_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-[#1F2E4C]/20 bg-white px-5 py-2.5 text-xs font-semibold text-[#1F2E4C] shadow-sm transition-colors hover:bg-[#FAF8F5]"
+              >
+                <Smartphone className="w-4 h-4" />
+                Get it on Google Play
+              </a>
+            </div>
+            <p className="text-xs text-[#3D4A66]/80 leading-relaxed mt-3">
+              Search &ldquo;athenaPatient&rdquo; — sign in with the same email and password you use for the portal.
+            </p>
+          </div>
         </div>
 
         {/* New patient: call or contact form */}
