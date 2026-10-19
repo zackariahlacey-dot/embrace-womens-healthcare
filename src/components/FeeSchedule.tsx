@@ -40,7 +40,7 @@ const visitPrices: VisitPrice[] = [
 
 const policies = [
   "Payment is due at the time of service through the patient portal",
-  "Lab orders and prescriptions are sent to your facility of choice and subject to your insurance or private pay",
+  "Lab orders and prescriptions are sent to your facility of choice and subject to your insurance or private pay — $35 Lab Interpretation Fee",
   "All services provided by telehealth appointment",
   "Receipts available to submit for insurance reimbursement",
 ];
